@@ -1,0 +1,467 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video,button,input,textarea{margin:0;padding:0;border:0;font-size:100%;font:inherit}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}h1,h2,h3,h4,h5,h6{font-weight:bold}h1{font-size:1.5em;line-height:1em}h2{font-size:1.275em;line-height:1.0909em}h3{font-size:1.15em}h4{font-size:1.125em;line-height:1.333em}h5,h6{font-size:1em;line-height:1.5em}.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+
+//$bgcolor: #e3e8ee;
+$bgcolor: #f2f5f7;
+//$bgcolor:#ffffff;
+
+//logo colors
+
+$red: #e94a40;
+$orange: #eb784f;
+
+// $darkblue: #107f98;
+//$lightblue: #4eaac6;
+$darkblue: saturate(#107f98, 10%);
+$lightblue:saturate(#4eaac6, 10%);
+
+$darkyellow: #fbb258;
+$lightyellow: #fdc893;
+
+$darkgreen: #71be9c;
+$lightgreen: #a1d0b4;
+
+$darkgrey: #313030;
+
+$greybtncolor: #f9f9f9;
+
+$unreadblue: #edf4fa;
+
+@mixin box-sizing {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+//clearfix
+
+a.inboxmsg:after, .msglisthead:after, .navmsgwrap:after, .msgthread:after, .msgtextarea:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+
+.left {
+	float:left;
+}
+
+.right {
+	float:right;
+}
+
+body {
+	background:$bgcolor;
+	color:$darkgrey;
+	padding-top:50px;
+	font-family:'proxima nova', arial;
+	font-size:14px;
+}
+
+//base form styling 
+
+input {
+		border:1px solid darken(#ebeef0, 10%);
+		border-radius:3px;
+
+		&:hover {
+			border:1px solid darken(#ebeef0, 20%);
+		}
+
+		&:active, &:focus {
+			border:1px solid $lightblue;
+			outline:0;
+		}
+}
+
+//button styles
+
+//default button style / blue button
+.btn {
+	background:$lightblue;
+	color:white;
+	border:1px solid $darkblue;
+	padding: 10px 14px;
+	text-decoration: none;
+	border-radius:3px;
+	font-weight: bold;
+	display: inline-block;
+
+		&:hover {
+			background: $darkblue;
+			border-color:darken($darkblue, 10%);
+		}
+
+		&:active, &:focus {
+			background: darken($darkblue, 6%);
+			border-color:darken($darkblue, 15%);
+		}
+}
+
+//white colored button
+.whitebtn {
+	background:$greybtncolor;
+	border: 1px solid #dddddd;
+	color:$darkgrey;
+
+		&:hover {
+			background: darken($greybtncolor, 3%);
+			border-color:darken(#dddddd, 5%);
+		}
+
+		&:active, &:focus {
+			background: darken($greybtncolor, 6%);
+			border-color:darken(#dddddd, 7%);
+		}
+}
+
+//disabled button
+
+.disabledbtn {
+	background:darken($greybtncolor, 15%);
+	border: 1px solid darken($greybtncolor, 25%);
+	color:darken($greybtncolor, 45%);
+
+		&:hover {
+			background:darken($greybtncolor, 15%);
+			border: 1px solid darken($greybtncolor, 25%);
+			cursor: default;
+		}
+
+		&:active, &:focus {
+			background:darken($greybtncolor, 15%);
+			border: 1px solid darken($greybtncolor, 25%);
+		}
+}
+
+
+
+//avatar sizing
+
+.ava {
+	background:url(ava.png);
+	display: inline-block;
+	border-radius:60px;
+}
+
+.ava50 {
+	width:50px;
+	height:50px;
+}
+
+.ava34 {
+	width:34px;
+	height:34px;
+
+	background-size:100%;
+}
+
+
+//box styling for the content
+
+.mainbg {
+	background:#ffffff;
+	border:1px solid darken($bgcolor, 10%);
+	border-radius: 3px;
+}
+
+
+//Inbox
+
+.msgscontainer {
+	width:530px;
+	max-width:100%;
+	margin:20px auto;
+	@include box-sizing;
+
+	min-height:500px;
+}
+
+//pagination nav
+
+nav.msgnav {
+	width:530px;
+	max-width:100%;
+	margin:20px auto;
+	@include box-sizing;
+	padding: 15px;
+	overflow: hidden;
+	margin-bottom:-15px;
+
+	a:first-child {
+		margin-right:10px;
+	}
+
+	.navmsgwrap {
+		float:right;
+	}
+}
+
+.msglist {
+
+	@include box-sizing;
+
+
+	&:first-child {
+		padding:25px 20px;
+		border-bottom:1px solid darken($bgcolor, 10%);
+	}
+
+	h1 {
+		line-height:34px;
+		font-weight: 500;
+	}
+
+	.adminmsg {
+			background:$lightyellow;
+			//border-color:$darkyellow;
+
+			a.inboxmsg, .time {
+				color:darken($lightyellow, 55%);
+			}
+	}
+
+	// .adminmsgread {
+	// 	background:lighten($lightyellow, 11%);
+	// 	//border-color:$darkyellow;
+
+	// 	a.inboxmsg, .time {
+	// 		color:darken($lightyellow, 55%);
+	// 	}
+	// }
+
+}
+
+a.inboxmsg {
+	@include box-sizing;
+	display:block;
+	color:$darkgrey;
+	padding:25px 20px;
+	text-decoration: none;
+	position:relative;
+
+	.msgavawrap {
+		width:15%;
+		min-width:70px;
+	}
+
+	.msgwrap {
+		width:70%;
+	}
+
+	i {
+		margin-right:10px;
+	}
+
+	.time {
+		color:lighten($darkgrey, 40%);
+		line-height: 21px;
+		position: absolute;
+		right:30px;
+		margin-top:-3px;
+		//text-align: right;
+	}
+
+	.usrnme {
+		font-weight: bold;
+		font-size:110%;
+	}
+
+	.prevmsg {
+		display:block;
+		line-height: 24px;
+		clear:both;
+		margin-top:23px;
+		width:100%;
+		max-width:350px;
+	}
+
+	&:hover {
+		background:lighten($bgcolor, 2%);
+	}
+
+}
+
+.unreadmsg {
+	background: $unreadblue;
+}
+
+//Message Thread
+
+.msgthreadhead {
+	padding:25px 20px;
+	border-bottom: 1px solid #d2dde4;		
+	text-align: center;
+	position: relative;
+
+	h1 {
+		display: inline;
+		font-size:115%;
+		color:lighten($darkgrey, 20%);
+		font-weight:500;
+	}
+
+	.ava34 {
+		vertical-align: middle;
+		margin-right:10px;
+		margin-top:-1px;
+	}
+
+	.btn {
+		text-align: left !important;
+		position: absolute;
+		left:20px;
+		//float: left;
+	}
+
+}
+
+ul.msgthread {
+
+	max-height:500px;
+	overflow: scroll;
+	overflow-x: hidden;
+
+	.sentmsg, .receivedmsg {
+		padding:8px 20px;
+		line-height: 22px;
+		max-width:100%;
+		overflow: hidden;
+
+		p {
+			padding:8px;
+			border-radius:3px;
+			width:60%;
+		}
+	}
+
+	.receivedmsg {
+		clear:both;
+	}
+
+	.receivedmsg p {
+		border:1px solid #ebeef0;
+		margin-left:10px;
+	}
+
+	.sentmsg p {
+		background:#ebeef0;
+		float:right;
+		margin-right:10px;
+	}
+
+}
+
+//text box styling
+
+.msgtextarea, .msgsrcharea {
+	background: #ebeef0;
+	border-top:1px solid darken(#ebeef0, 10%);
+	box-shadow: inset 0 1px #ffffff;
+	padding:10px;
+
+	textarea {
+		padding:5px;
+		line-height: 20px;
+		min-height:70px;
+		max-height:70px;
+		display: inline-block;
+		width:75%;
+		max-width: 75%;
+		margin-right:2%;
+		position: relative;
+		resize:none;
+		border:1px solid #ffffff;
+		//margin-right:3%;
+
+		&:focus {
+			outline:none;
+			border:1px solid darken(#ebeef0, 10%);
+		}
+	}
+
+	textarea, input {
+		padding:5px;
+		display: inline-block;
+		width:75%;
+		max-width: 75%;
+		margin-right:2%;
+		position: relative;
+	}
+
+	input {
+		min-height:38px;
+		max-height:38px;
+		line-height: 36px;
+	}
+
+	.btn {
+		vertical-align: middle;
+		 position: relative;
+		 top:32px;
+		// min-width:75px;
+		// max-width:75px;
+		min-height:36px;
+		max-height:36px;
+		line-height: 36px;
+		padding:0;
+		width:22%;
+		text-align:center; display: inline-block;
+	}
+
+	//button for searching users on new message page
+	.srchusrbtn {
+		top: 0;
+	}
+}
+
+//section for input box for searching for users
+.msgsrcharea {
+	padding:20px;
+	background: #ffffff;
+	border-top:none;
+
+	h1 {
+		text-align: center;
+		font-weight: 500;
+	}
+}
+
+//header section for new message
+.msgsrchareaheader {
+	border-bottom:1px solid darken(#ebeef0, 10%);
+}
+
+//list of users on the new message
+.searchusermsglist li {
+	padding:10px 20px;
+
+	i {
+		vertical-align: middle;
+		margin-right:10px;
+	}
+
+	b {
+		font-size: 120%;
+	}
+
+	&:hover {
+		cursor: pointer;
+		background: $unreadblue;
+	}
+}
+
+
+@media only screen 
+and (max-width : 500px) {
+
+	a.inboxmsg {
+		padding:25px 10px;
+	}
+
+	.msgthreadhead .btn {
+		left:10px;
+	}
+
+}

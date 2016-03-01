@@ -1,0 +1,38 @@
+<div class="msgscontainer mainbg">
+
+			<div class="msgthreadhead">
+			<%= link_to 'Inbox', conversations_path(@conversation), class: 'btn whitebtn' %>
+				<i class="ava ava34"></i><h1>@<%= @recipient.username %></h1>
+	</div>
+		
+			<ul class="msgthread">
+			<% @messages.each do |message| %>
+				<% if message.user != current_user %>
+					<li class="receivedmsg">
+						<i class="ava ava34 left"></i>
+						<p class="left">
+							<%= message.body %>
+						</p>
+					</li>
+				<% end %>	
+				<% if message.user == current_user %>
+			
+					<li class="sentmsg">
+						<i class="ava ava34 right"></i>
+						<p>
+							<%= message.body %>
+						</p>
+					</li>
+				<% end %>	
+			<% end %>
+
+
+		</ul> 
+
+
+	<%= render :partial => 'new' %>
+
+	</div>
+
+
+		

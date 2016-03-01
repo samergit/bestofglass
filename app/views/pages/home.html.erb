@@ -1,0 +1,8 @@
+<%= link_to "Join", new_user_registration_path %>
+<% @User.each do |user| %>
+  <%= link_to user.username, {:controller => "users", :action => "profile", :username => user.username }%>
+<% end %>  
+
+<%= link_to "login", user_session_path %>
+<br><br>
+<%= link_to "messages", conversations_path %>
