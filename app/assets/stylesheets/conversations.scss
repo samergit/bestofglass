@@ -22,7 +22,7 @@ $lightgreen: #a1d0b4;
 
 $darkgrey: #313030;
 
-$greybtncolor: #f9f9f9;
+$greybtncolor: #ebeef0;
 
 $unreadblue: #edf4fa;
 
@@ -34,7 +34,7 @@ $unreadblue: #edf4fa;
 
 //clearfix
 
-a.inboxmsg:after, .msglisthead:after, .navmsgwrap:after, .msgthread:after, .msgtextarea:after {
+a.inboxmsg:after, .msglisthead:after, .navmsgwrap:after, .msgthread:after, .msgtextarea:after, .signupwrap .left:after, .msgs:after {
     content: ".";
     display: block;
     height: 0;
@@ -51,12 +51,26 @@ a.inboxmsg:after, .msglisthead:after, .navmsgwrap:after, .msgthread:after, .msgt
 	float:right;
 }
 
+
+//paragraph fix long words go into new lines
+
+p {
+	word-break:break-all;
+}
+
 body {
 	background:$bgcolor;
 	color:$darkgrey;
-	padding-top:50px;
+	padding:25px 15px;
 	font-family:'proxima nova', arial;
 	font-size:14px;
+}
+
+//link style
+
+a {
+	color:$lightblue;
+	padding:3px 0;
 }
 
 //base form styling 
@@ -75,13 +89,20 @@ input {
 		}
 }
 
+//remove border on input fields that are buttons
+
+input.btn {
+	border:none;
+}
+
+
 //button styles
 
 //default button style / blue button
 .btn {
 	background:$lightblue;
 	color:white;
-	border:1px solid $darkblue;
+	//border:1px solid $darkblue;
 	padding: 10px 14px;
 	text-decoration: none;
 	border-radius:3px;
@@ -90,30 +111,48 @@ input {
 
 		&:hover {
 			background: $darkblue;
-			border-color:darken($darkblue, 10%);
+			//border-color:darken($darkblue, 10%);
 		}
 
 		&:active, &:focus {
 			background: darken($darkblue, 6%);
-			border-color:darken($darkblue, 15%);
+			//border-color:darken($darkblue, 15%);
 		}
 }
 
 //white colored button
 .whitebtn {
 	background:$greybtncolor;
-	border: 1px solid #dddddd;
+	//border: 1px solid #dddddd;
 	color:$darkgrey;
 
 		&:hover {
 			background: darken($greybtncolor, 3%);
-			border-color:darken(#dddddd, 5%);
+			//border-color:darken(#dddddd, 5%);
 		}
 
 		&:active, &:focus {
 			background: darken($greybtncolor, 6%);
-			border-color:darken(#dddddd, 7%);
+			//border-color:darken(#dddddd, 7%);
 		}
+}
+
+//red text
+.redtext {
+	color:$red;
+}
+
+//red colored button
+.redbtn {
+	background: $red;
+
+	&:hover {
+		background: darken($red, 3%);
+	}
+	
+	&:active, &:focus {
+		background: darken($red, 6%);
+	}
 }
 
 //disabled button
@@ -136,6 +175,19 @@ input {
 }
 
 
+//load more button
+
+.loadmorebtn {
+	text-align: center;
+	width:200px;
+	margin: 0 auto;
+	display: block;
+	color:$lightblue;
+	text-decoration: none;
+	padding:8px 3px;
+	border-radius: 30px;
+	font-weight: 500;
+}
 
 //avatar sizing
 
@@ -178,25 +230,46 @@ input {
 	min-height:500px;
 }
 
-//pagination nav
+//messages pagination nav
 
-nav.msgnav {
-	width:530px;
-	max-width:100%;
-	margin:20px auto;
+.fullnext, .halfprev, .halfnext {
+	text-align: center;
+	background: $unreadblue;
+	font-size:110%;
+	font-weight: 500;
+
+
+	border-top:4px solid white;
+
 	@include box-sizing;
-	padding: 15px;
-	overflow: hidden;
-	margin-bottom:-15px;
 
-	a:first-child {
-		margin-right:10px;
+	a {
+		display: block;
+		text-decoration: none;
+		padding:25px 0;
 	}
 
-	.navmsgwrap {
-		float:right;
+	&:hover {
+		background:darken($unreadblue, 3%);
+	}
+
+	&:active, &:focus {
+		background: darken($unreadblue, 5%);
 	}
 }
+
+.halfprev {
+	border-right:2px solid white;
+}
+
+.halfnext {
+	border-left:2px solid white;
+}
+
+.halfprev, .halfnext {
+	width:50%;
+}
+
 
 .msglist {
 
@@ -308,20 +381,27 @@ a.inboxmsg {
 		margin-top:-1px;
 	}
 
-	.btn {
+	.leftbtn {
 		text-align: left !important;
 		position: absolute;
 		left:20px;
 		//float: left;
 	}
 
+	.rightbtn {
+		text-align: right;
+		position: absolute;
+		right:20px;
+	}
+
 }
 
 ul.msgthread {
-
+	min-height: 500px;
 	max-height:500px;
 	overflow: scroll;
 	overflow-x: hidden;
+	padding-top:5px;
 
 	.sentmsg, .receivedmsg {
 		padding:8px 20px;
@@ -353,6 +433,20 @@ ul.msgthread {
 
 }
 
+//time stamp
+
+.timestamp {
+	clear:both;
+	margin-left:45px;
+	font-size:80%;
+	color:lighten($darkgrey, 50%);
+	margin-top:3px;
+}
+
+.timestamp.right {
+	margin-right:45px;
+}
+
 //text box styling
 
 .msgtextarea, .msgsrcharea {
@@ -381,7 +475,7 @@ ul.msgthread {
 		}
 	}
 
-	textarea, input {
+	textarea, .searchusrbox {
 		padding:5px;
 		display: inline-block;
 		width:75%;
@@ -390,7 +484,7 @@ ul.msgthread {
 		position: relative;
 	}
 
-	input {
+	.searchusrbox {
 		min-height:38px;
 		max-height:38px;
 		line-height: 36px;
@@ -408,6 +502,10 @@ ul.msgthread {
 		padding:0;
 		width:22%;
 		text-align:center; display: inline-block;
+
+		&:hover {
+			cursor: pointer;
+		}
 	}
 
 	//button for searching users on new message page
@@ -452,6 +550,122 @@ ul.msgthread {
 	}
 }
 
+//sign up/login
+
+
+
+	//opaque div for form wrap
+	.signupwrap {
+		width:450px;
+		max-width:100%;
+		margin:0 auto;
+		padding:50px;
+		border-radius:3px;
+
+		background-color:#ffffff;
+
+		@include box-sizing;
+
+		h1 {
+			margin-bottom:50px;
+			line-height:30px;
+			font-weight: 300;
+			text-align: center;
+		}
+
+
+		.signupinput {
+			padding:15px 10px;
+			border-radius: 0;
+			display: block;
+
+			font-size:120%;
+			font-weight: 300;
+
+			width:100%;
+			margin:15px auto;
+			border:none;
+			border-bottom:1px solid darken($bgcolor, 10%);
+
+
+			&:focus {
+				border-bottom:1px solid $lightblue;
+			}
+
+		}
+
+		label {
+			margin-bottom:5px;
+			vertical-align: middle;
+		}
+
+		input[type='checkbox'] {
+			background: red;
+			padding:100px;
+		}
+
+		.btn {
+			font-size:120%;
+			font-weight: 300;
+			padding:18px 8px;
+			display: block;
+
+			width:100%;
+			margin:50px auto 0;
+
+			&:hover {
+				cursor:pointer;
+			}
+		}
+
+		//forgot password link
+
+		.fpwlink {
+			margin:25px auto;
+		}
+
+		//checkbox input
+
+		.remember, #rememberMe {
+			display: inline-block;
+			margin-top:0px;
+			margin-bottom:-30px;
+			vertical-align: middle;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+	}
+
+
+.birthdaysignup {
+	text-align: center;
+
+	select {
+		//padding:10px 5px;
+		height:35px;
+		margin-top:15px;
+	}
+
+	//select style for month year day
+
+	.signupmonth {
+		width:47%;
+	}
+	.signupday {
+		width:25%;
+	}
+	.signupyear {
+		width:25%;
+	}
+
+	option {
+		padding:10px 5px;
+	}
+}
+
 
 @media only screen 
 and (max-width : 500px) {
@@ -460,8 +674,16 @@ and (max-width : 500px) {
 		padding:25px 10px;
 	}
 
-	.msgthreadhead .btn {
+	.msgthreadhead .leftbtn {
 		left:10px;
+	}
+
+	.msgthreadhead .rightbtn {
+		right:10px;
+	}
+
+	.signupwrap {
+		padding:30px;
 	}
 
 }

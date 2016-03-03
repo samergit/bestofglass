@@ -1,8 +1,8 @@
 	<div class="msgtextarea"> 
  		<%= form_for(current_user.messages.new, :url => {:controller => :messages, :action => 'create'}) do |f| %>
-          <%= f.text_area :body,  class: "left", placeholder: "Type message here..."  %>
+          <%= f.text_area :body, placeholder: "Type message here...", class: "left"  %>
           <%= f.submit "Send", :class => "btn left" %>
-          <% end %>
-
+        <% end %>
+	
 	</div>
 </div>

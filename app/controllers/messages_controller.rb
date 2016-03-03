@@ -19,6 +19,7 @@ class MessagesController < ApplicationController
     @body = params[:message][:body]
     @message = current_user.messages.new(:conversation_id => @conversation.id, :body=> @body)
     if @message.save
+      @message.conversation.touch(:updated_at) 
       redirect_to conversation_messages_path
     end  
   end

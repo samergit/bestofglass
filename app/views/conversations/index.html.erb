@@ -27,7 +27,7 @@
             <p class="time"><%= time_ago_in_words(conversation.messages.last.created_at) %> ago</p>
 
 
-            <p class="prevmsg"><%= conversation.messages.last.body.truncate_words(10) %></p>
+            <p class="prevmsg"><%= conversation.messages.last.body.truncate(100) %></p>
           </div>
           <% end %> 
          
@@ -44,7 +44,7 @@
             <p class="time"><%= time_ago_in_words(conversation.messages.last.created_at) %></p>
 
 
-            <p class="prevmsg"><%= conversation.messages.last.body.truncate_words(10) %></p>
+            <p class="prevmsg"><%= conversation.messages.last.body.truncate(100) %></p>
           </div>
          <% end %> 
       </li>

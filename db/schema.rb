@@ -11,7 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226110649) do
+ActiveRecord::Schema.define(version: 20160303012051) do
+
+  create_table "auctions", force: :cascade do |t|
+    t.integer  "bid_id"
+    t.string   "title"
+    t.integer  "artist_id"
+    t.text     "description"
+    t.datetime "end_time"
+    t.integer  "comment_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "auctions", ["artist_id"], name: "index_auctions_on_artist_id"
+  add_index "auctions", ["bid_id"], name: "index_auctions_on_bid_id"
+  add_index "auctions", ["comment_id"], name: "index_auctions_on_comment_id"
+
+  create_table "bids", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "auction_id"
+    t.float    "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "bids", ["auction_id"], name: "index_bids_on_auction_id"
+  add_index "bids", ["user_id"], name: "index_bids_on_user_id"
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "auction_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["auction_id"], name: "index_comments_on_auction_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
@@ -31,6 +68,17 @@ ActiveRecord::Schema.define(version: 20160226110649) do
 
   add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id"
   add_index "messages", ["user_id"], name: "index_messages_on_user_id"
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

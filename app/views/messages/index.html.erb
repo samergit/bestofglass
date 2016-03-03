@@ -1,9 +1,10 @@
 <div class="msgscontainer mainbg">
 
 			<div class="msgthreadhead">
-			<%= link_to 'Inbox', conversations_path(@conversation), class: 'btn whitebtn' %>
+				<%= link_to 'Inbox', conversations_path(@conversation), class: 'btn whitebtn leftbtn' %>
 				<i class="ava ava34"></i><h1>@<%= @recipient.username %></h1>
-	</div>
+				<a class="btn whitebtn rightbtn redtext" href="#">Delete</a>
+			</div>
 		
 			<ul class="msgthread">
 			<% @messages.each do |message| %>
@@ -13,6 +14,7 @@
 						<p class="left">
 							<%= message.body %>
 						</p>
+						<span class="timestamp left"><%=  time_ago_in_words(message.created_at) %></span>
 					</li>
 				<% end %>	
 				<% if message.user == current_user %>
@@ -22,6 +24,7 @@
 						<p>
 							<%= message.body %>
 						</p>
+						<span class="timestamp right"><%= time_ago_in_words(message.created_at) %></span>
 					</li>
 				<% end %>	
 			<% end %>
