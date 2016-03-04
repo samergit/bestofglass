@@ -6,7 +6,7 @@ class ConversationsController < ApplicationController
 
   def create
     @recipient = User.find_by_username(params[:username])
-    @conversation = current_user.convoCheck(@recipient) 
+    @conversation = current_user.convo_check(@recipient) 
     if  @conversation != false
       redirect_to conversation_messages_path(@conversation)
     else

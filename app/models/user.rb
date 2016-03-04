@@ -9,18 +9,34 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :confirmable, :trackable, :validatable
  
-  #follower relationships
-  has_many :followed_users, through: :relationships, source: :followed
-  has_many :relationships, foreign_key: "follower_id", dependent: :destroy
-  has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship", 
-                                                                dependent: :destroy                                                          
-  has_many :followers, through: :reverse_relationships, source: :follower
-
   #messages for convos
   has_many :messages
 
   #comments for auctions
   has_many :comments
+
+#follower relationships
+  has_many :followed_users, through: :relationships, source: :followed
+  has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+  has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship", 
+                                                                dependent: :destroy                                                          
+  has_many :followers, through: :reverse_relationships, source: :follower
+  
+def following?(other_user)
+    relationships.find_by_followed_id(other_user.id)
+  end
+
+    def photorepped?(photo)
+     photoreps.find_by_photo_id(photo.id)
+    end
+
+  def follow!(other_user)
+    relationships.create!(followed_id: other_user.id) 
+  end
+
+  def unfollow!(other_user)
+    relationships.find_by_followed_id(other_user.id).destroy
+  end
 
 
 
@@ -30,7 +46,7 @@ class User < ActiveRecord::Base
   end
 
 
-  def recipientCheck(conversation)
+  def recipient_check(conversation)
     @conversation = Conversation.find(conversation)
     if @conversation.sender_id == self.id
       return User.find(@conversation.recipient.id)
@@ -39,7 +55,7 @@ class User < ActiveRecord::Base
     end  
   end  
 
-  def convoCheck(recipient)
+  def convo_check(recipient)
     @recipient = recipient 
     if Conversation.where(sender_id: self.id, recipient_id: @recipient.id).present?
       @conversation =  Conversation.where(sender_id: self.id, recipient_id: @recipient.id).first

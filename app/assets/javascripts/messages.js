@@ -1,3 +1,3 @@
-$(document).ready(function () {
-   $('.msgthread').scrollTop($('.msgthread').height())
+$(document).ready(function(){
+    $(".msgthread").scrollTop($(".msgthread")[0].scrollHeight);
 });

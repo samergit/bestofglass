@@ -5,8 +5,8 @@
 				<i class="ava ava34"></i><h1>@<%= @recipient.username %></h1>
 				<a class="btn whitebtn rightbtn redtext" href="#">Delete</a>
 			</div>
-		
-			<ul class="msgthread">
+			<div class="msgthread">
+			<ul>
 			<% @messages.each do |message| %>
 				<% if message.user != current_user %>
 					<li class="receivedmsg">
@@ -31,11 +31,12 @@
 
 
 		</ul> 
+		</div>
 
 
 	<%= render :partial => 'new' %>
 
-	</div>
+
 
 
 		

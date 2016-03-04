@@ -40,7 +40,7 @@
           </div>
 
           <div class="left msgwrap">
-            <p class="usrnme left"><%= conversation.recipientMessage(current_user) %></p>
+            <p class="usrnme left"><%= conversation.recipient_message(current_user) %></p>
             <p class="time"><%= time_ago_in_words(conversation.messages.last.created_at) %></p>
 
 

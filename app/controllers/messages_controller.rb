@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
 
   def index
     @messages = @conversation.messages
-    @recipient = current_user.recipientCheck(@conversation.id)
+    @recipient = current_user.recipient_check(@conversation.id)
     if @messages.present?
       @messages.last.read?(current_user)
     end  

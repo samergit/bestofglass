@@ -70,7 +70,6 @@ body {
 
 a {
 	color:$lightblue;
-	padding:3px 0;
 }
 
 //base form styling 
@@ -88,6 +87,7 @@ input {
 			outline:0;
 		}
 }
+
 
 //remove border on input fields that are buttons
 
@@ -159,18 +159,18 @@ input.btn {
 
 .disabledbtn {
 	background:darken($greybtncolor, 15%);
-	border: 1px solid darken($greybtncolor, 25%);
+	//border: 1px solid darken($greybtncolor, 25%);
 	color:darken($greybtncolor, 45%);
 
 		&:hover {
 			background:darken($greybtncolor, 15%);
-			border: 1px solid darken($greybtncolor, 25%);
+			//border: 1px solid darken($greybtncolor, 25%);
 			cursor: default;
 		}
 
 		&:active, &:focus {
 			background:darken($greybtncolor, 15%);
-			border: 1px solid darken($greybtncolor, 25%);
+			//border: 1px solid darken($greybtncolor, 25%);
 		}
 }
 
@@ -188,6 +188,18 @@ input.btn {
 	border-radius: 30px;
 	font-weight: 500;
 }
+
+//trash
+
+.trashicon {
+	background:url('Trash_Icon.svg') no-repeat center center;
+	color:$red;
+	background-size:22px 22px;
+	height:34px;
+	width:34px;
+	display: block;
+}
+
 
 //avatar sizing
 
@@ -396,7 +408,7 @@ a.inboxmsg {
 
 }
 
-ul.msgthread {
+div.msgthread {
 	min-height: 500px;
 	max-height:500px;
 	overflow: scroll;
@@ -456,18 +468,17 @@ ul.msgthread {
 	padding:10px;
 
 	textarea {
-		padding:5px;
+		padding:6px;
 		line-height: 20px;
 		min-height:70px;
 		max-height:70px;
-		display: inline-block;
-		width:75%;
-		max-width: 75%;
-		margin-right:2%;
+		width:100%;
+		max-width: 100%;
 		position: relative;
 		resize:none;
 		border:1px solid #ffffff;
-		//margin-right:3%;
+
+		@include box-sizing;
 
 		&:focus {
 			outline:none;
@@ -475,13 +486,12 @@ ul.msgthread {
 		}
 	}
 
-	textarea, .searchusrbox {
+	.searchusrbox {
 		padding:5px;
-		display: inline-block;
 		width:75%;
 		max-width: 75%;
-		margin-right:2%;
 		position: relative;
+		margin-right:2%;
 	}
 
 	.searchusrbox {
@@ -491,17 +501,13 @@ ul.msgthread {
 	}
 
 	.btn {
-		vertical-align: middle;
-		 position: relative;
-		 top:32px;
-		// min-width:75px;
-		// max-width:75px;
 		min-height:36px;
 		max-height:36px;
 		line-height: 36px;
 		padding:0;
-		width:22%;
-		text-align:center; display: inline-block;
+		width:100%;
+		margin-top:8px;
+		text-align: center;
 
 		&:hover {
 			cursor: pointer;
@@ -510,7 +516,10 @@ ul.msgthread {
 
 	//button for searching users on new message page
 	.srchusrbtn {
+		width:22%;
+		margin-top:0;
 		top: 0;
+
 	}
 }
 

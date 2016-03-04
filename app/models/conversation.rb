@@ -7,7 +7,7 @@ class Conversation < ActiveRecord::Base
   validates_uniqueness_of :sender_id, :scope => :recipient_id
 
 
-  def recipientMessage(user)
+  def recipient_message(user)
     @user = user
     if self.sender.id == @user.id
       @recipient = User.find(self.recipient.id)
