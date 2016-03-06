@@ -10,4 +10,15 @@ class Message < ActiveRecord::Base
     end
   end
 
+   def is_deleted?(user)
+      @user = user
+      if self.conversation.sender_id == @user.id && self.send_delete == true 
+        return true
+      elsif self.conversation.recipient_id == @user.id && self.recipient_delete == true 
+        return true   
+      elsif
+        false
+      end
+   end    
+
 end

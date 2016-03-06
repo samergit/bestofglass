@@ -3,31 +3,32 @@
 			<div class="msgthreadhead">
 				<%= link_to 'Inbox', conversations_path(@conversation), class: 'btn whitebtn leftbtn' %>
 				<i class="ava ava34"></i><h1>@<%= @recipient.username %></h1>
-				<a class="btn whitebtn rightbtn redtext" href="#">Delete</a>
+			<%= link_to 'Delete', @conversation, method: :delete,  data: {confirm: 'Are you sure?'}, class: 'btn whitebtn rightbtn redtext' %>
 			</div>
 			<div class="msgthread">
 			<ul>
 			<% @messages.each do |message| %>
-				<% if message.user != current_user %>
-					<li class="receivedmsg">
-						<i class="ava ava34 left"></i>
-						<p class="left">
+				<% unless message.is_deleted?(current_user) %>
+					<% if message.user != current_user %>
+						<li class="receivedmsg">
+							<i class="ava ava34 left"></i>
+							<p class="left">
 							<%= message.body %>
-						</p>
-						<span class="timestamp left"><%=  time_ago_in_words(message.created_at) %></span>
-					</li>
-				<% end %>	
-				<% if message.user == current_user %>
-			
-					<li class="sentmsg">
+							</p>
+							<span class="timestamp left"><%=  time_ago_in_words(message.created_at) %></span>
+						</li>
+					<% end %>	
+					<% if message.user == current_user %>
+						<li class="sentmsg">
 						<i class="ava ava34 right"></i>
 						<p>
 							<%= message.body %>
 						</p>
 						<span class="timestamp right"><%= time_ago_in_words(message.created_at) %></span>
-					</li>
-				<% end %>	
-			<% end %>
+						</li>
+					<% end %>	
+				<% end %>
+			<% end %>	
 
 
 		</ul> 

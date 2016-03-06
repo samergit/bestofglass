@@ -18,4 +18,55 @@ class Conversation < ActiveRecord::Base
     end  
   end    
 
+  def delete_convo(user)
+    @user = user
+    if self.sender.id == @user.id
+      self.sender_delete = true
+      self.save
+      self.messages.each do |message| 
+        message.send_delete = true
+        message.save
+      end  
+    elsif self.recipient.id == @user.id
+      self.recipient_delete = true
+      self.save
+      self.messages.each do |message| 
+        message.recipient_delete = true
+        message.save
+      end    
+    end  
+    if self.sender_delete == true && self.recipient_delete == true  
+      self.destroy
+    end  
+  end
+
+  def deleted?(user)
+    @user = user
+    if self.sender.id == @user.id && self.sender_delete == true
+      return true
+    elsif self.recipient.id == @user.id && self.recipient_delete == true
+      return true   
+    else
+      return false
+    end  
+  end
+
+  def undelete(user, user2)
+    @user = user
+    @user2 = user2
+    if self.sender.id == @user.id && self.sender_delete == true
+      self.sender_delete = false
+      self.save
+    elsif self.recipient.id == @user.id && self.recipient_delete == true
+      self.recipient_delete = false
+      self.save   
+    elsif self.sender.id == @user2.id && self.sender_delete == true
+      self.sender_delete = false
+      self.save
+    elsif self.recipient.id == @user2.id && self.recipient_delete == true
+      self.recipient_delete = false
+      self.save     
+    end  
+  end
+
 end

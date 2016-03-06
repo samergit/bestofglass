@@ -13,43 +13,39 @@
         <h1 class="left">Messages</h1>
         <a href="#" class="btn right">New Message</a>
       </li>
-      <% @conversations.order("updated_at desc").each do |conversation| %>
-        <% if conversation.messages.last.user_id != current_user.id && conversation.messages.last.read == false %>
-        <li class="msglist">
-        <%= link_to(conversation_messages_path(conversation), html_options = {class: 'inboxmsg unreadmsg'}) do %>
-
-          <div class="left msgavawrap">
-            <i class="ava ava50"></i>
-          </div>
-
-          <div class="left msgwrap">
-            <p class="usrnme left"><%= conversation.messages.last.user.username %></p>
-            <p class="time"><%= time_ago_in_words(conversation.messages.last.created_at) %> ago</p>
-
-
-            <p class="prevmsg"><%= conversation.messages.last.body.truncate(100) %></p>
-          </div>
-          <% end %> 
-         
-      </li>
-      <% else %>
-      <li class="msglist">
-        <%= link_to(conversation_messages_path(conversation), html_options = {class: 'inboxmsg'}) do %>
-          <div class="left msgavawrap">
-            <i class="ava ava50"></i>
-          </div>
-
-          <div class="left msgwrap">
-            <p class="usrnme left"><%= conversation.recipient_message(current_user) %></p>
-            <p class="time"><%= time_ago_in_words(conversation.messages.last.created_at) %></p>
-
-
-            <p class="prevmsg"><%= conversation.messages.last.body.truncate(100) %></p>
-          </div>
-         <% end %> 
-      </li>
+        <% @conversations.order("updated_at desc").each do |conversation| %>
+          <% unless conversation.deleted?(current_user) %>
+            <% if conversation.messages.present? %>
+              <% if conversation.messages.last.user_id != current_user.id && conversation.messages.last.read == false %>
+                <li class="msglist">
+                <%= link_to(conversation_messages_path(conversation), html_options = {class: 'inboxmsg unreadmsg'}) do %>
+                <div class="left msgavawrap">
+                  <i class="ava ava50"></i>
+                </div>
+                <div class="left msgwrap">
+                <p class="usrnme left"><%= conversation.messages.last.user.username %></p>
+                <p class="time"><%= time_ago_in_words(conversation.messages.last.created_at) %> ago</p>
+                <p class="prevmsg"><%= conversation.messages.last.body.truncate(100) %></p>
+              </div> 
+              <% end %> 
+              </li>
+            <% else %>
+            <li class="msglist">
+              <%= link_to(conversation_messages_path(conversation), html_options = {class: 'inboxmsg'}) do %>
+              <div class="left msgavawrap">
+              <i class="ava ava50"></i>
+              </div>
+            <div class="left msgwrap">
+              <p class="usrnme left"><%= conversation.recipient_message(current_user) %></p>
+              <p class="time"><%= time_ago_in_words(conversation.messages.last.created_at) %></p>
+              <p class="prevmsg"><%= conversation.messages.last.body.truncate(100) %></p>
+            </div>
+            <% end %>  
+            </li>
     
       <% end %>
+      <% end %>
+     <% end %> 
     <% end %>
     </ul> 
 

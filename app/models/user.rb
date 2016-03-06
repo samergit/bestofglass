@@ -22,13 +22,9 @@ class User < ActiveRecord::Base
                                                                 dependent: :destroy                                                          
   has_many :followers, through: :reverse_relationships, source: :follower
   
-def following?(other_user)
+  def following?(other_user)
     relationships.find_by_followed_id(other_user.id)
   end
-
-    def photorepped?(photo)
-     photoreps.find_by_photo_id(photo.id)
-    end
 
   def follow!(other_user)
     relationships.create!(followed_id: other_user.id) 

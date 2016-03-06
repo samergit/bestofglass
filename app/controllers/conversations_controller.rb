@@ -7,7 +7,7 @@ class ConversationsController < ApplicationController
   def create
     @recipient = User.find_by_username(params[:username])
     @conversation = current_user.convo_check(@recipient) 
-    if  @conversation != false
+    if  @conversation.present?
       redirect_to conversation_messages_path(@conversation)
     else
       @conversation = Conversation.create!(sender_id: current_user.id, recipient_id: @recipient.id)
@@ -15,9 +15,17 @@ class ConversationsController < ApplicationController
     end
   end
 
+  def destroy
+    @conversation = Conversation.find(params[:id])
+    @conversation.delete_convo(current_user)
+    redirect_to conversations_path
+  end  
+
   private
     def conversation_params
       params.permit(:sender_id, :recipient_id)
     end
+
+
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160303012051) do
+ActiveRecord::Schema.define(version: 20160306073310) do
 
   create_table "auctions", force: :cascade do |t|
     t.integer  "bid_id"
@@ -55,15 +55,19 @@ ActiveRecord::Schema.define(version: 20160303012051) do
     t.integer  "recipient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "sender_delete",    default: false
+    t.boolean  "recipient_delete", default: false
   end
 
   create_table "messages", force: :cascade do |t|
     t.text     "body"
     t.integer  "conversation_id"
     t.integer  "user_id"
-    t.boolean  "read",            default: false
+    t.boolean  "read",             default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "send_delete",      default: false
+    t.boolean  "recipient_delete", default: false
   end
 
   add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id"
