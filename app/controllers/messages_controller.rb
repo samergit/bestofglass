@@ -5,21 +5,16 @@ class MessagesController < ApplicationController
 
   def index
     @messages = @conversation.messages
-    @recipient = current_user.recipient_check(@conversation.id)
+    @recipient = @conversation.recipient_message(current_user)
     if @messages.present?
       @messages.last.read?(current_user)
     end  
   end
 
-  def new
-    @message = current_user.messages.new
-  end
-
   def create
-    @body = params[:message][:body]
     @user = @conversation.sender
     @user2 = @conversation.recipient
-    @message = current_user.messages.new(:conversation_id => @conversation.id, :body=> @body)
+    @message = current_user.messages.new(:conversation_id => @conversation.id, body: params[:message][:body])
     if @message.save
       @conversation.undelete(@user, @user2)
       @message.conversation.touch(:updated_at) 

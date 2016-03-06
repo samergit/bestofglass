@@ -22,3 +22,8 @@ class Message < ActiveRecord::Base
    end    
 
 end
+
+  #delete in console or admin panel
+  def delete_all
+    self.destroy
+  end

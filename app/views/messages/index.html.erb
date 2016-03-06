@@ -2,7 +2,7 @@
 
 			<div class="msgthreadhead">
 				<%= link_to 'Inbox', conversations_path(@conversation), class: 'btn whitebtn leftbtn' %>
-				<i class="ava ava34"></i><h1>@<%= @recipient.username %></h1>
+				<i class="ava ava34"></i><h1>@<%= @recipient %></h1>
 			<%= link_to 'Delete', @conversation, method: :delete,  data: {confirm: 'Are you sure?'}, class: 'btn whitebtn rightbtn redtext' %>
 			</div>
 			<div class="msgthread">

@@ -34,23 +34,13 @@ class User < ActiveRecord::Base
     relationships.find_by_followed_id(other_user.id).destroy
   end
 
-
-
+  #grab list conversations for display in user inbox
   def conversations
     @conversations = Conversation.where("sender_id = ? OR recipient_id = ?", self, self)
     return @conversations
   end
 
-
-  def recipient_check(conversation)
-    @conversation = Conversation.find(conversation)
-    if @conversation.sender_id == self.id
-      return User.find(@conversation.recipient.id)
-    elsif @conversation.recipient_id == self.id
-      return User.find(@conversation.sender_id)
-    end  
-  end  
-
+  #check to  see if conversation between two users already exist during creation
   def convo_check(recipient)
     @recipient = recipient 
     if Conversation.where(sender_id: self.id, recipient_id: @recipient.id).present?
@@ -63,9 +53,6 @@ class User < ActiveRecord::Base
     else 
       return false    
     end
-
-
-
   end
 
 end
