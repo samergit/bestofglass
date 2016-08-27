@@ -16,7 +16,7 @@ class Message < ActiveRecord::Base
         return true
       elsif self.conversation.recipient_id == @user.id && self.recipient_delete == true 
         return true   
-      elsif
+      else
         false
       end
    end    

@@ -35,7 +35,15 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :instagram
+      t.string :avatar
       t.date :date_of_birth
+      t.boolean :w9_submitted, default: false
+      t.datetime :last_viewed_activity_page
+      t.datetime :last_viewed_notification_page
+      t.datetime :last_viewed_messages_page
+      t.datetime :last_received_message
+      t.datetime :last_received_notification
+      t.datetime :last_active_at
 
       t.timestamps null: false
     end

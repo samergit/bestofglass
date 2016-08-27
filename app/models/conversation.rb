@@ -18,28 +18,48 @@ class Conversation < ActiveRecord::Base
     end  
   end    
 
+
+  def recipient_message_update(user)
+    @user = user
+    if self.sender.id == @user.id
+      @recipient = User.find(self.recipient.id)
+      return @recipient
+    elsif self.recipient.id == @user.id
+      @recipient = User.find(self.sender.id)
+      return @recipient
+    end  
+  end  
+
+  #one sided soft deletes convo and messages if first conversation parcipitant to delete
+  #hard deletes if both conversation participants have deleted convo
   def delete_convo(user)
     @user = user
     if self.sender.id == @user.id
       self.sender_delete = true
       self.save
-      self.messages.each do |message| 
-        message.send_delete = true
-        message.save
-      end  
+      if self.sender_delete == true && self.recipient_delete == true  
+        self.destroy
+      else
+        self.messages.each do |message| 
+          message.send_delete = true
+          message.save
+        end
+      end  #check this if errors after edit, added elsif instead of separate if
     elsif self.recipient.id == @user.id
       self.recipient_delete = true
       self.save
-      self.messages.each do |message| 
-        message.recipient_delete = true
-        message.save
-      end    
-    end  
-    if self.sender_delete == true && self.recipient_delete == true  
-      self.destroy
-    end  
+      if self.recipient_delete == true && self.sender_delete == true 
+        self.destroy
+      else 
+        self.messages.each do |message| 
+          message.recipient_delete = true
+          message.save
+        end    
+      end   
+    end
   end
 
+  #check to see if conversation is deleted by either recipient or sender
   def deleted?(user)
     @user = user
     if self.sender.id == @user.id && self.sender_delete == true
@@ -51,23 +71,25 @@ class Conversation < ActiveRecord::Base
     end  
   end
 
+  #undoes the one-sided soft delete of convo if new message sent
   def undelete(user, user2)
     @user = user
     @user2 = user2
-    if self.sender.id == @user.id && self.sender_delete == true
+    if (self.sender.id == @user.id || self.sender.id == @user2.id) && self.sender_delete == true
       self.sender_delete = false
       self.save
-    elsif self.recipient.id == @user.id && self.recipient_delete == true
+    elsif (self.recipient.id == @user.id || self.recipient.id == @user2.id) && self.recipient_delete == true
       self.recipient_delete = false
       self.save   
-    elsif self.sender.id == @user2.id && self.sender_delete == true
-      self.sender_delete = false
-      self.save
-    elsif self.recipient.id == @user2.id && self.recipient_delete == true
-      self.recipient_delete = false
-      self.save     
     end  
   end
 
+  def unviewed
+    self.update_attribute(:read, false)
+  end
+
+  def has_been_viewed
+    self.update_attribute(:read, true)
+  end
 
 end

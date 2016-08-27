@@ -1,8 +1,16 @@
+<% provide(:body_class, "suckitbaby") %> 
+<br><br><br><br><br><br><br><br><br><br><br>
+
 <%= link_to "Join", new_user_registration_path %>
+<%= link_to "Artist Sign Up", artist_signup_path %>
 <% @User.each do |user| %>
-  <%= link_to user.username, {:controller => "users", :action => "profile", :username => user.username }%>
+  <%= link_to user.username, {:controller => "users", :action => "show", :username => user.username }%>
 <% end %>  
 
 <%= link_to "login", user_session_path %>
 <br><br>
 <%= link_to "messages", conversations_path %>
+
+
+
+

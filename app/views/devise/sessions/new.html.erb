@@ -1,26 +1,25 @@
-<h2>Log in</h2>
+<%provide(:body_class, "non-nav")%> 
+  <div class="signupwrap mainbg">
+      <div class="logolrg" style="width:55px;height:80px;">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+        <object type="image/svg+xml" data="<%= asset_path('logo.svg') %>" class="logo logolrg">
+              <img src="<%= asset_path('logo.png') %>">
+          </object>
+      </object>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    <h1>Sign into <b>Best of Glass</b></h1>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= f.text_field :login, autofocus: true, placeholder: "Username or Email", class: "signupinput", size: "30" %>
+      <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "signupinput", size: "30" %>
+      <% if devise_mapping.rememberable? -%>
+        <%= f.check_box :remember_me, class: "remember", id: "rememberme" %>
+        <%= f.label :remember_me, class: "remember", for: "rememberme", id: "rememberme" %>
+      <% end -%>
+      <%= f.submit "Sign in", class: "btn" %>
+    <% end %>
+    <p class="fpwlink"><%= link_to "Forgot your password?", new_password_path(resource_name) %></p>
+    <p>Don't have an account? <%=link_to "Join", new_user_registration_path %> today.</p>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+

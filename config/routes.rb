@@ -1,14 +1,35 @@
 Rails.application.routes.draw do
 
   root :to => 'pages#home'
-  devise_for :users
+  devise_for :users, :controllers => {registrations: 'registrations'}
+
+  resources :auctions, param: :slug do
+    member do
+      get 'auction_timer'
+    end
+    resources :bids, only: [:index]
+    resources :attachments, only: [:destroy]
+  end
+
+  resources :orders, only: [:update]
+
+  
+  resources :bids, only: [:create, :destroy]
   
   #conversation routes
   resources :conversations do
     resources :messages
   end
-  #  profile route for users for /username
-  get '/:username' => 'users#profile'
+
+  resources :messages
+
+  get '/access-denied', to: 'denied_pages#show'
+
+  get '/artist/signup', to: 'artists#new'
+  get '/orders/pay', to: 'orders#auction_payment'
+  # get '/orders/payment_process', to: 'orders#process_auction_payment'
+  #  slugs for users and auctions
+  get '/:username' => 'users#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

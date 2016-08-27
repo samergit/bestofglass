@@ -16,6 +16,8 @@ class MessagesController < ApplicationController
     @user2 = @conversation.recipient
     @message = current_user.messages.new(:conversation_id => @conversation.id, body: params[:message][:body])
     if @message.save
+      @recipient = @message.conversation.recipient_message_update(current_user)
+      @recipient.touch :last_received_message
       @conversation.undelete(@user, @user2)
       @message.conversation.touch(:updated_at) 
       redirect_to conversation_messages_path

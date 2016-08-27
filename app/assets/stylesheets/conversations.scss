@@ -1,30 +1,93 @@
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video,button,input,textarea{margin:0;padding:0;border:0;font-size:100%;font:inherit}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}h1,h2,h3,h4,h5,h6{font-weight:bold}h1{font-size:1.5em;line-height:1em}h2{font-size:1.275em;line-height:1.0909em}h3{font-size:1.15em}h4{font-size:1.125em;line-height:1.333em}h5,h6{font-size:1em;line-height:1.5em}.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video,button,input,textarea{margin:0;padding:0;border:0;font-size:100%;font:inherit}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}h1,h2,h3,h4,h5,h6{font-weight:bold}h1{font-size:1.5em;line-height:1em}h2{font-size:1.275em;line-height:1.2em}h3{font-size:1.15em}h4{font-size:1.125em;line-height:1.333em}h5,h6{font-size:1em;line-height:1.5em}.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
 
 //$bgcolor: #e3e8ee;
-$bgcolor: #f2f5f7;
+//$bgcolor: #ebf0f2;
+$bgcolor:#f0f4f7;
+//$bgcolor:lighten(#ebeff2, 2%);
+//$bgcolor: #f2f2f5;
 //$bgcolor:#ffffff;
 
 //logo colors
 
-$red: #e94a40;
-$orange: #eb784f;
+$red: #e55552;
+$orange: #f28361;
 
-// $darkblue: #107f98;
-//$lightblue: #4eaac6;
-$darkblue: saturate(#107f98, 10%);
-$lightblue:saturate(#4eaac6, 10%);
+$darkred:#e45454;
 
-$darkyellow: #fbb258;
-$lightyellow: #fdc893;
+$darkblue: #0f76a3;
+$lightblue: #44a2cc;
 
-$darkgreen: #71be9c;
-$lightgreen: #a1d0b4;
 
-$darkgrey: #313030;
+$darkyellow: #fab869;
+$lightyellow: #fccda0;
 
-$greybtncolor: #ebeef0;
+$darkgreen: #65c3a8;
+$lightgreen: #92ccb4;
 
-$unreadblue: #edf4fa;
+$darkgrey: #2b373d;
+$darkbgblue: #1b262b;
+
+$greybtncolor: #e9edf0;
+
+$unreadblue: darken(#e9f0f5, 3%);
+
+$bordercolor: darken($bgcolor, 10%);
+
+
+$navbg: #1f313b;
+
+$dbactive: lighten($navbg, 7%);
+
+
+  @font-face {
+      font-family: 'proxima_nova_ltsemibold';
+      src: asset-url('ProximaNova-Sbold-webfont.eot');
+      src: asset-url('ProximaNova-Sbold-webfont.eot?#iefix') format('embedded-opentype'),
+           asset-url('ProximaNova-Sbold-webfont.woff') format('woff'),
+           asset-url('ProximaNova-Sbold-webfont.ttf') format('truetype'),
+           asset-url('ProximaNova-Sbold-webfont.svg#proxima_nova_ltsemibold') format('svg');
+      font-weight: normal;
+      font-style: normal;
+
+  }
+
+
+  @font-face {
+      font-family: 'proxima_nova_rgregular';
+      src: asset-url('ProximaNova-Reg-webfont.eot');
+      src: asset-url('ProximaNova-Reg-webfont.eot?#iefix') format('embedded-opentype'),
+           asset-url('ProximaNova-Reg-webfont.woff') format('woff'),
+           asset-url('ProximaNova-Reg-webfont.ttf') format('truetype'),
+           asset-url('ProximaNova-Reg-webfont.svg#proxima_nova_rgregular') format('svg');
+      font-weight: normal;
+      font-style: normal;
+
+  }
+
+
+
+body {
+	background:$bgcolor;
+	color:$darkgrey;
+	//padding:0 15px;
+	font-family:'proxima_nova_rgregular', times, sans-serif;
+	font-size:14px;
+
+	padding:20px;
+
+ 	// width: 100%;
+ 	// height: 100%;
+
+ 	//@include box-sizing;
+}
+
+.non-nav .mobilenavheader, .non-nav #logged-out-nav, .non-nav #logged-out-nav, .non-nav #logged-in-nav {
+	display: none !important;
+}
+
+.hp-bgfix {
+	padding:0;
+}
 
 @mixin box-sizing {
   -webkit-box-sizing: border-box;
@@ -32,9 +95,27 @@ $unreadblue: #edf4fa;
           box-sizing: border-box;
 }
 
+//safari ios input styling fix
+
+input {
+    -webkit-appearance: none;
+}
+
+input[type='checkbox'] {
+	 -webkit-appearance: checkbox;
+}
+
+
+
 //clearfix
 
-a.inboxmsg:after, .msglisthead:after, .navmsgwrap:after, .msgthread:after, .msgtextarea:after, .signupwrap .left:after, .msgs:after {
+a.inboxmsg:after, .msglisthead:after, .navmsgwrap:after, .msgthread:after, .msgtextarea:after,
+.signupwrap .left:after, .msgs:after, .mainwrap:after, .feedbackscore:after,
+.mainnavwrap nav:after, .profileactivity:after, label[for="description"]:before,
+.auctiontopwrap:after, .relative:after, .followlinkfix:before, .files:after,
+.newaucsections .descclear:before, .msgthread ul:after,
+.activity-listing:after, .clear-area:after, .leave-feedback-description:after, .favorited-auctions-inner-list:after,
+.checkout-process:after, .cart-list:after {
     content: ".";
     display: block;
     height: 0;
@@ -51,32 +132,192 @@ a.inboxmsg:after, .msglisthead:after, .navmsgwrap:after, .msgthread:after, .msgt
 	float:right;
 }
 
+.remove-border {
+	border:none !important;
+}
+
+label:hover {
+	cursor:pointer;
+}
+
+//flash messages
+
+#flashmessage, .success-msg, .error-msg, .general-msg,
+.auction-message, .green-auction-message, .yellow-auction-message, .general-auction-message {
+	@include box-sizing;
+}
+
+.auction-message {
+	padding:20px 20px 0;
+	display: block;
+	width:100%;
+}
+
+.general-auction-message {
+	color:$darkgrey;
+	background-color: $bgcolor;
+	border:1px solid darken($bgcolor, 8%);
+}
+
+.yellow-auction-message {
+	color:darken($darkyellow, 40%);
+	background-color: lighten($lightyellow, 7%);
+	border:1px solid darken($darkyellow, 5%);
+}
+
+#flashmessage, .auction-message {
+	width:100%;
+	font-family:'proxima_nova_ltsemibold';
+}
+
+#flashmessage.hp-flash {
+		margin:20px auto 0px;
+		max-width:888px;
+		padding:0 20px;
+}
+
+#flashmessage.gen-flash {
+		margin:60px auto -40px;
+		max-width: 960px;
+}
+
+//checkout flash
+#flashmessage.checkout-flash {
+	max-width: 800px;
+	margin:0 auto 20px;
+}
+
+
+.success-msg, .error-msg, .general-msg,
+.green-auction-message, .yellow-auction-message, .general-auction-message {
+	padding:10px;
+	display: block;
+	width:100%;
+
+}
+
+.success-msg, .green-auction-message {
+	color:darken($darkgreen, 20%);
+
+	background-color: lighten($darkgreen, 35%);
+
+	border:1px solid lighten($darkgreen, 20%);
+}
+
+.error-msg {
+	color:darken($red, 20%);
+
+	background-color: lighten($red, 35%);
+
+	border:1px solid lighten($red, 20%);
+
+	ul {
+		margin-top:10px;
+
+		li {
+			line-height: 30px;
+			list-style-type: circle;
+			margin-left:15px;
+		}
+	}
+}
+
+.general-msg {
+	color:darken($darkyellow, 30%);
+
+	background-color: lighten($darkyellow, 25%);
+
+	border:1px solid lighten($darkyellow, 10%);
+}
+
+//age checker 
+
+.age-check-background {
+	background: rgba(0,0,0,0.6);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 999999;
+}
+
+.age-check-prompt {
+	background: #fff;
+	border-radius: 2px;
+	box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+	max-width: 300px;
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+	padding: 20px 35px 30px 35px;
+	position: relative;
+ 	top: 15%;
+	z-index: 1000000;
+
+	box-sizing:border-box;
+}
+
+.age-check-prompt h1 {
+	line-height: 120%;
+}
+
+.age-check-prompt p {
+	line-height: 19px;
+	margin:20px 0;
+}
+
+.age-check-prompt .btn {
+	padding:14px 24px;
+}
+
 
 //paragraph fix long words go into new lines
 
 p {
-	word-break:break-all;
+-ms-word-break: break-all;
+     word-break: break-all;
+
+     // Non standard for webkit
+     word-break: break-word;
+
+-webkit-hyphens: auto;
+   -moz-hyphens: auto;
+        hyphens: auto;
 }
 
-body {
-	background:$bgcolor;
-	color:$darkgrey;
-	padding:25px 15px;
-	font-family:'proxima nova', arial;
-	font-size:14px;
+//add padding to sides
+
+.paddingwrap {
+	padding:0 20px;
 }
 
 //link style
 
 a {
 	color:$lightblue;
+
+	&:hover {
+		color:$darkblue;
+	}
+}
+
+//relative 
+
+.relative {
+	position: relative;
 }
 
 //base form styling 
 
-input {
+input, .inputstyle {
 		border:1px solid darken(#ebeef0, 10%);
 		border-radius:3px;
+		@include box-sizing;
 
 		&:hover {
 			border:1px solid darken(#ebeef0, 20%);
@@ -88,12 +329,142 @@ input {
 		}
 }
 
+textarea {
+	@include box-sizing;
+}
+
+#auction_attachment_attachment {
+	display: none;
+}
+
+//form styling
+
+.label-style {
+	display: inline-block;
+	margin-bottom:8px;
+	font-family:'proxima_nova_ltsemibold';
+	font-size: 85%;
+	color:lighten($darkgrey, 25%);
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+.select-style {
+
+	width:200px;
+
+	text-transform: uppercase;
+	font-family:'proxima_nova_ltsemibold';
+	letter-spacing: 2px;
+	color:lighten($darkgrey, 10%);
+	line-height: 30px;
+	border-color:#ced5da;
+
+	padding:1px 10px;
+	border-radius: 3px;
+
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	-ms-appearance:none;
+	appearance:none;
+
+	position: relative;
+
+	background:#f7f9fb url(icons/select_arrow.png) no-repeat right center;
+	background:#f7f9fb url(icons/select_arrow.svg) no-repeat right center;
+}
+
+select::-ms-expand {
+    display: none;
+}  
+
+.circleorder {
+	border:1px solid lighten($darkgrey, 15%);
+	border-radius: 50%;
+	display: inline-block;
+	margin-right:20px;
+	text-align: center;
+	line-height: 30px;
+	width:30px;
+	height:30px;
+}
+
+.textarea-style {
+	max-width:100%;
+	max-height:300px;
+	min-height:150px;
+	border:1px solid #cddbe4;
+
+	&:hover, &:active, &:focus {
+		border-width: 1px;
+	}
+}
+
+//text area for feedback
+
+.feedback-text-area {
+	min-height:50px;
+	max-height:100px;
+}
+
 
 //remove border on input fields that are buttons
 
 input.btn {
 	border:none;
 }
+
+//active indicators on navigation
+
+//activity page indicators
+
+.all-activity-page .activity-sub-nav .active-sub-all-link,
+.you-activity-page .activity-sub-nav .active-sub-you-link,
+.following-activity-page .activity-sub-nav .active-sub-following-link
+{
+color:$darkgreen !important;
+
+	&:hover {
+		color:#ffffff !important;	
+	}
+}
+
+//dashboard page indicators 
+
+.bids-db-page .db-nav-section .bids-db-active,
+
+.won-db-page .db-nav-section .won-db-active,
+
+.favorite-db-page .db-nav-section .favorite-db-active,
+
+.feedback-db-page .db-nav-section .feedback-db-active,
+
+.editprofile-db-page .db-nav-section .editprofile-db-active,
+
+.accountsettings-db-page .db-nav-section .accountsettings-db-active,
+
+.billinginfo-db-page .db-nav-section .billinginfo-db-active,
+
+.purchasehistory-db-page .db-nav-section .purchasehistory-db-active
+{
+	background: $dbactive;
+	border-left:4px solid $darkgreen;
+}
+
+//help center page indicators 
+
+.about-help-page .db-nav-section .about-help-active,
+
+.contact-help-page .db-nav-section .contact-help-active,
+
+.useragreement-help-page .db-nav-section .useragreement-help-active,
+
+.tos-page .db-nav-section .tos-active
+{
+	background: darken($bgcolor, 7%);
+	border-left: 4px solid $lightblue;
+}
+
 
 
 //button styles
@@ -103,20 +474,41 @@ input.btn {
 	background:$lightblue;
 	color:white;
 	//border:1px solid $darkblue;
-	padding: 10px 14px;
+	padding: 14px;
 	text-decoration: none;
 	border-radius:3px;
-	font-weight: bold;
+	font-family:'proxima_nova_ltsemibold';
 	display: inline-block;
+	text-align: center;
+
+	@include box-sizing;
 
 		&:hover {
 			background: $darkblue;
-			//border-color:darken($darkblue, 10%);
+			color:white;
+			cursor:pointer;
 		}
 
 		&:active, &:focus {
 			background: darken($darkblue, 6%);
 			//border-color:darken($darkblue, 15%);
+		}
+}
+
+//follow button
+
+.followbtn {
+	background:$darkgreen;
+	width:100%;
+
+		&:hover {
+			background:darken($darkgreen, 6%);
+			cursor: pointer;
+		}
+
+		&:active, &:focus {
+			background:darken($darkgreen, 10%);
+			outline:0;
 		}
 }
 
@@ -127,6 +519,7 @@ input.btn {
 	color:$darkgrey;
 
 		&:hover {
+			color:$darkgrey;
 			background: darken($greybtncolor, 3%);
 			//border-color:darken(#dddddd, 5%);
 		}
@@ -137,9 +530,41 @@ input.btn {
 		}
 }
 
+//dark blue colored button
+.darkbluebtn {
+	background: $darkblue;
+
+	&:hover {
+		background: darken($darkblue, 3%);
+	}
+	
+	&:active, &:focus {
+		background: darken($darkblue, 6%);
+	}
+}
+
+//red border
+
+.redborder {
+	border-color:red;
+	background:#ffffff !important;
+}
+
 //red text
 .redtext {
-	color:$red;
+	color:$red !important;
+}
+
+//dark grey text
+
+.darkgreytext {
+	color:$darkgrey;
+}
+
+//light grey text
+
+.lightgreytext {
+	color:lighten($darkgrey, 40%);
 }
 
 //red colored button
@@ -147,11 +572,38 @@ input.btn {
 	background: $red;
 
 	&:hover {
-		background: darken($red, 3%);
+		background: darken($red, 6%);
 	}
 	
 	&:active, &:focus {
-		background: darken($red, 6%);
+		background: darken($red, 8%);
+	}
+}
+
+//greenbtn 
+
+.greenbtn {
+	background: $darkgreen;
+
+	&:hover {
+		background: darken($darkgreen, 6%);
+	}
+	
+	&:active, &:focus {
+		background: darken($darkgreen, 8%);
+	}
+}
+
+//orange colored button
+.orangebtn {
+	background: $orange;
+
+	&:hover {
+		background: darken($orange, 3%);
+	}
+	
+	&:active, &:focus {
+		background: darken($orange, 6%);
 	}
 }
 
@@ -164,49 +616,57 @@ input.btn {
 
 		&:hover {
 			background:darken($greybtncolor, 15%);
+			color:darken($greybtncolor, 45%);
 			//border: 1px solid darken($greybtncolor, 25%);
-			cursor: default;
+			cursor: default !important;
 		}
 
 		&:active, &:focus {
 			background:darken($greybtncolor, 15%);
+			outline:0;
 			//border: 1px solid darken($greybtncolor, 25%);
 		}
 }
 
-
-//load more button
+//load more button for messages
 
 .loadmorebtn {
+	height:48px;
+	line-height: 48px;
 	text-align: center;
 	width:200px;
 	margin: 0 auto;
 	display: block;
 	color:$lightblue;
 	text-decoration: none;
-	padding:8px 3px;
+	padding:0 3px;
 	border-radius: 30px;
-	font-weight: 500;
+	font-family:'proxima_nova_ltsemibold';
+
 }
 
-//trash
+.load-more-area {
+	padding:10px 0;
+	display: none;
 
-.trashicon {
-	background:url('Trash_Icon.svg') no-repeat center center;
-	color:$red;
-	background-size:22px 22px;
-	height:34px;
-	width:34px;
-	display: block;
+	.disabledbtn img {
+		margin-top:14px;
+	}
+
+	.load-more-loader {
+		display: none;
+	}
 }
 
 
 //avatar sizing
 
 .ava {
-	background:url(ava.png);
+	//background:url(ava.png);
 	display: inline-block;
-	border-radius:60px;
+	border-radius:50%;
+
+	border:1px solid darken($bgcolor, 10%);
 }
 
 .ava50 {
@@ -221,37 +681,1811 @@ input.btn {
 	background-size:100%;
 }
 
+.profileava img {
+	width:150px;
+	height:150px;
+
+	margin:25px auto 0;
+}
+
+
+.acp-btn {
+	line-height: 36px;
+	text-decoration: none;
+	font-size:120%;
+	text-align: center;
+}
+
+//bagicon
+.bag-notification, .new-auction-nav-btn, .acp-btn {
+	background: lighten($bgcolor, 2%);
+	border:1px solid darken($bgcolor, 6%);
+	border-radius:100%;
+	height:36px;
+	width:36px;
+	//padding:5px;
+	@include box-sizing;
+	position: relative;
+	top:11px;
+	margin-right:10px;
+
+	&:hover {
+		background: $bgcolor;
+	}
+}
+
+.bagiconwrap {
+	display: block;
+}
+
+.bagicon {
+	margin:0 auto;
+	background-size:100%;
+	height:18px;
+	width:18px;
+	display: block;
+	//display: inline-block;
+	vertical-align: middle;
+	margin-top:8px;
+
+}
+
+.checkout-items-notification {
+	background: $red;
+	color:#ffffff;
+	position: absolute;
+	border:2px solid #ffffff;
+	border-radius:50%;
+	width:12px;
+	height:12px;
+	font-size:8px;
+	line-height: 12px;
+	text-align: center;
+	top:-5px;
+	right:-5px;
+}
+
+// password icon
+
+.passwordicon, .emailicon, .usernameicon {
+	margin-right:10px;
+	vertical-align: middle;
+}
+
+//navauctionicon 
+
+.navauctionicon {
+	margin:0 auto;
+	background-size:100%;
+	height:19px;
+	width:17px;
+	display: block;
+	//display: inline-block;
+	vertical-align: middle;
+	margin-top:8px;
+}
+
+.navauctioniconmobile, .bagiconmobile {
+	float:left;
+	margin-top:19px;
+	margin-right:10px;
+}
+
+//verifiedicon
+
+.verifiedicon {
+	background-size:22px 22px;
+	height:22px;
+	width:22px;
+	margin-right:5px;
+	display: inline-block;
+
+	vertical-align: middle;
+}
+
+//helpicon
+
+.helpicon {
+	background-size:22px 22px;
+	height:22px;
+	width:22px;
+	margin-right:5px;
+	display: inline-block;
+
+	vertical-align: middle;
+}
+
+//ig icon
+
+.instagramicon {
+	background-size:19px 19px;
+	height:19px;
+	width:19px;
+	display: inline-block;
+
+	vertical-align: middle;
+}
+
+
+//trash
+
+.trashicon {
+	background-size:22px 22px;
+	height:22px;
+	width:22px;
+	display: block;
+}
+
+.trashiconwrap {
+	padding:8px;
+}
+
+//delete icon x icon
+
+.xicon {
+	background-size:16px 16px;
+	height:16px;
+	width:16px;
+	margin-top:10px;
+}
+
+//star icon 
+
+.staricon {
+	background-size:20px 20px;
+	height:20px;
+	width:20px;
+	margin-top:9px;
+	margin-right:5px;
+	float:left;
+}
+
+//new message icon
+
+.newmessageicon {
+	background-size:18px 18px;
+	height:18px;
+	width:18px;
+	margin-right:5px;
+	float: left;
+
+
+}
+
+//object link fix
+
+a.svg, button.svg {
+  position: relative;
+  display: inline-block; 
+}
+a.svg:after, button.svg:after {
+  content: ""; 
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left:0;
+}
+
+.activityicon {
+	background-size:24px 24px;
+	height:24px;
+	width:24px;
+	top:15px;
+}
+
+.notificationicon {
+	background-size:18px;
+	height:18px;
+	width:18px;
+	top:20px;
+}
+
+.dashboardicon {
+	background-size:20px;
+	height:20px;
+	width:20px;
+	top:18px;
+}
+
+.messageicon {
+	background-size:20px;
+	height:20px;
+	width:20px;
+	top:18px;
+}
+
+.paymenticon {
+	background:url('icons/payment_icon.svg') no-repeat;
+	background-size:18px 15px;
+	height:15px;
+	width:18px;
+
+	display: inline-block;
+	vertical-align: middle;
+	margin-right:5px;
+}
+
+.auctionicon {
+	background:url('icons/auction_icon.svg') no-repeat;
+	background-size:15px 15px;
+	height:15px;
+	width:15px;
+
+	display: inline-block;
+	vertical-align: middle;
+	margin-right:5px;
+}
+
+.accounticon {
+	background:url('icons/account_icon.svg') no-repeat;
+	background-size:15px 15px;
+	height:15px;
+	width:15px;
+
+	display: inline-block;
+	vertical-align: middle;
+	margin-right:5px;
+}
+
+.mobilesearchicon {
+	background-size:20px;
+	height:20px;
+	width:40px;
+	top:18px;
+}
+
+.messageicon, .dashboardicon, .activityicon, .notificationicon, .mobilesearchicon {
+	float:left;
+	background-position: center;
+	position: relative;	
+	margin-right:5px;
+}
+
+//search icon
+
+.searchnavwrap {
+	position: relative;
+	display: block;
+}
+
+.searchbtn, .searchbtnfix {
+	outline: 0;
+    vertical-align: middle;
+    text-indent: -99999px;
+    border: none;
+    background-size:30px 30px;
+    width: 30px;
+    height: 30px;
+    line-height: 0;
+    font-size: 0;
+    cursor: pointer;
+    display: block;
+
+    position: absolute;
+    right:8px;
+    top:13px;
+    cursor: pointer;
+
+    &:hover, &:active, &:focus {
+    	border:none;
+    	outline: 0;
+    }
+}
+
+.searchbtnfix {
+	width:18px;
+	height:18px;
+	top:8px;
+}
+
+//credit card icons
+
+.payment-icon {
+	display: inline-block;
+    width: 38px;
+    height: 24px;
+    margin:0 3px;
+    position: relative;
+    top:5px;
+}
+
+.visaicon {
+	background: url('icons/visa_icon.svg');
+}
+
+.mastercardicon {
+	background: url('icons/mastercard_icon.svg');
+}
+
+.amexicon {
+	background: url('icons/amex_icon.svg');
+}
+
+//menu icon
+
+.menuiconwrap {
+	float: left;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.menuicon {
+	position: relative;
+	background-size:18px 14px;
+	height:14px;
+	width:18px;
+	display: inline-block;	
+	vertical-align: middle;
+}
+
+.mobile-menu-notification, .desktop-menu-notification {
+	background: $red;
+	color:#ffffff;
+	position: absolute;
+	border:1px solid #ffffff;
+	border-radius:50%;
+	width:12px;
+	height:12px;
+	font-size:8px;
+	line-height: 12px;
+	text-align: center;
+
+}
+
+.mobile-menu-notification {
+	top:16px;
+	left:4px;	
+}
+
+.desktop-menu-notification {
+	right:-6px;
+	left:auto;
+	top:-6px;
+}
+
+
+//main navigation 
+
+.hp-logged-out-nav .mainnavwrap {
+	//background:none;
+	border-bottom: none;
+	//position: absolute;
+	//margin-top:10px;
+
+
+	nav .searchbox {
+		background: #ffffff;
+		border-bottom:1px solid darken($bgcolor, 10%);
+		margin-left:20px;
+		width:250px;
+	}
+}
+
+.hp-logged-out-nav .mobilenavheader {
+	min-height: 60px;
+}
+
+.mainnavwrap {
+	position:fixed;
+	left:0;
+	top:0;
+	z-index:88888;
+	width:100%;
+	margin:0 auto;
+	max-width:100%;
+	background: #ffffff;
+	border-bottom:1px solid darken($bgcolor, 7%);
+	border-top:none;
+
+	@include box-sizing;
+
+	//display: none;
+
+}
+
+nav {
+	max-width: 960px;
+	margin:0 auto;
+	position: relative;
+
+}
+
+.searchbox {
+	position: relative;
+	margin-right:8px;
+	width:200px;
+	max-width:100%;
+	height:59px;
+	border:none;
+	border-radius: 0;
+	padding:0 32px 0px 8px;
+	background:darken($bgcolor, 2%);
+	background: $bgcolor;
+
+	@include box-sizing;
+
+	&:hover {
+		border:none;
+	}
+
+	&:active, &:focus {
+		background: lighten($bgcolor, 2%);
+		border:none;
+	}
+}
+
+//search box for pop up on mobile
+
+.search-pop-up-wrap {
+	display: none;
+	position: absolute;
+	top:0;
+	background: #ffffff;
+	z-index:1;
+	width:100%;
+	height:55px;
+
+	.search-box-pop-up {
+		width:75%;
+		float:left;
+		position: relative;
+	}
+
+	.searchbox {
+		margin-right:0;
+		height:55px;
+		width:100%;
+		position: relative;
+
+
+
+		&:hover, &:focus, &:active {
+			border:none;
+		}
+	}
+
+
+
+	.cancel-btn-wrap {
+		width:25%;
+		float:left;
+		padding:5px 6px;
+		@include box-sizing;
+
+		.btn {
+			display: block;
+			font-size:90%;
+			padding:0;
+			width:100%;
+			padding:16px 0;
+		}
+	}
+}
+
+nav .mainnavlink {
+	position: relative;
+	float:left;
+	padding:0 8px;
+	font-family:'proxima_nova_ltsemibold';
+	text-decoration: none;
+	height:59px;
+	line-height: 59px;
+	font-size:90%;
+
+	//color:lighten($darkgrey, 30%);
+
+	color:lighten($darkgrey, 25%);
+
+	//border-bottom: 4px solid #fffff
+
+	-webkit-transition: border .1s ease-in, background-color .1s ease-in;
+	-moz-transition: border .1s ease-in, background-color .1s ease-in;
+	transition: border .1s ease-in, background-color .1s ease-in ;
+
+	&:hover {
+		background: $bgcolor;
+	}
+}
+
+.notifycircle {
+	position: absolute;
+	left:50%;
+	top:8px;
+	margin-left:-3px;
+	width:6px;
+	height:6px;
+	border-radius: 30px;
+	background:$darkred;
+	display: block;
+}
+
+//drop down menu
+
+.drop-down-menu {
+
+	display: none;
+
+	position: absolute;
+	z-index: 1;
+	right:15px;
+
+	background: #ffffff;
+
+	top:60px;
+
+
+	box-shadow:0 1px 4px rgba(0,0,0,0.25);
+
+	li {
+		padding:10px 0;
+	}
+
+	a {
+		display: block;
+		color:darken($bgcolor, 40%);
+		text-decoration: none;
+		padding:10px 20px;
+		min-width:150px;
+		line-height: 21px;
+
+		.username {
+			min-height:32px;
+
+			span {
+				display: block;
+				font-family:'proxima_nova_ltsemibold';
+				color:$darkgrey;
+				font-size:110%;
+			}
+
+			em {
+				font-size:80%
+			}
+
+		}
+
+		&:hover, &:hover span {
+			background: $darkgrey;
+			color:#ffffff;
+		}
+
+	}
+
+}
+
+.toggle-dropdown {
+	height:59px;
+	margin-right:15px;
+	padding:0 15px;
+
+	.artist-ava-wrap {
+		position: relative;
+
+		.checkout-items-notification {
+			top:-15px;
+			right:0;
+		}
+	}
+
+	img {
+	position: relative;
+	top:11px;
+	}
+
+	.menuicon {
+		position: relative;
+		top:-4px;
+		margin-left:10px;
+	}
+
+	&:hover {
+		background:$bgcolor;
+		cursor:pointer;
+	}
+}
+
+//logged out nav
+
+.nav-cta {
+	margin-top:8px;
+	padding-right:17px;
+
+	a {
+		margin:0 5px;
+	}
+}
+
+#logged-out-mobile-nav .menuicon, #logged-in-mobile-nav .menuicon {
+	float: left;
+	margin-top:13px;
+	//margin-left:10px;
+	padding:10px;
+	//margin-right:-15px;
+
+	&:hover {
+		cursor:pointer;
+	}
+}
+
+
+#logged-out-mobile-nav .nav-cta {
+	padding-right:0;
+}
+
+//mobile nav
+
+.mobilenavheader {
+		
+	display: none;
+
+
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:888888;
+	width:100%;
+	margin:0 auto;
+	max-width:100%;
+	background: #ffffff;
+	//box-shadow: 0 0 2px rgba(0,0,0,0.4);
+	border-bottom:1px solid darken($bgcolor, 7%);
+	border-top:none;
+
+	@include box-sizing;
+
+
+	.messageicon, .dashboardicon, .activityicon, .notificationicon {
+		margin:0 auto;
+		width:40px;
+	}
+
+	.mobile-search-icon {
+		display: none;
+	}
+
+	ul {
+		overflow: hidden;
+	}
+
+	li {
+		float:left;
+		height:55px;
+
+
+		.logo {
+			top:-2px;
+		}
+	}
+
+	.mainnavlink {
+		display: block;
+		float:left;
+		height:55px;
+		width:40px;
+
+		&:hover {
+			background: $bgcolor;
+		}
+	}
+
+
+
+}
+
+
+.slide-out-mobile-nav {
+
+	display: none;
+
+
+	background: #ffffff;	
+
+	border-right:1px solid darken($bgcolor, 7%);
+
+
+	position: fixed;
+
+	z-index:888888;
+	top:0;
+	left:0;
+	height:100%;
+	width:250px;
+	overflow-y:scroll;
+
+	transform: translate3d(-250px, 0, 0);
+	-moz-transform: translate3d(-250px, 0, 0);
+	-webkit-transform: translate3d(-250px, 0, 0);
+
+		-webkit-perspective: 1000;
+	-webkit-backface-visibility: hidden;
+
+	@include box-sizing;
+
+	padding:0 0 15px;
+
+	.mobile-nav-profile a {
+		text-decoration: none;
+	}
+
+	.ava50 {
+		margin:0 auto;
+		display: block;
+	}
+
+	 .username {
+		display: block;
+		text-align: center;
+		text-decoration: none;
+		margin-top:5px;
+		padding:10px 0;
+		letter-spacing: 2px;
+		font-family:'proxima_nova_ltsemibold';
+	}
+
+
+	ul li {
+		display: block;
+		position: relative;
+		overflow: hidden;
+
+		.mainnavlink {
+			display: block;
+		}
+
+		.mainnavlink, .searchbox {
+			width:100%;
+			max-width:250px;
+		}
+
+		.searchbox {
+			padding-left:10px;
+
+			margin:15px 0;
+
+		}
+
+		.searchbtn {
+			top:28px;
+		}
+
+		.notifycircle {
+			top:25px;
+		}
+
+		.subnavlink {
+			padding-left:30px;
+		}
+	}
+
+
+}
+
+.navJSFix {
+	position: relative;
+	margin-bottom:-56px;
+}
+
+#wrapper, .slide-out-mobile-nav, .movewrap  {
+	-moz-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out; 
+}
+
+.shownav {
+	transform: translate3D(0,0,0);
+	-moz-transform: translate3D(0,0,0);
+	-webkit-transform: translate3D(0,0,0);
+}
+
+.movewrap {
+	transform: translate3D(250px,0,0);
+	-moz-transform: translate3D(250px,0,0);
+	-webkit-transform: translate3D(250px,0,0);
+	position: fixed;
+}
+
+//close menu btn 
+
+.close-menu-button {
+	height:55px;
+	background: $bgcolor;
+	margin-bottom:20px;
+	border-bottom: 1px solid darken($bgcolor, 7%);
+
+	text-align: center;
+	display: block;
+	width:100%;
+
+
+	&:hover {
+		background: darken($bgcolor, 3%);
+		cursor: pointer;
+	}
+
+	em {
+		line-height: 55px;
+		color:$lightblue;
+		text-transform: uppercase;
+		font-size:80%;
+		letter-spacing: 2px;
+	}
+
+	.xicon {
+		margin-top:-2px;
+		margin-left:5px;
+		vertical-align: middle;
+	}
+}
+
+.logo, .logolrg {
+	display: block;
+}
+
+.logo-wrap {
+	float:left;
+}
+
+.mainnavwrap .logo, .mobilenavheader .logo {
+
+	width:35px;
+	height:49px;
+	background-size:35px 49px;
+	padding:0 !important;
+	margin-right:20px;
+	margin-left:5px;
+	position: relative;
+	margin-top:5px;
+}
+
+.logolrg {
+	width:55px;
+	height:80px;
+	background-size:55px 80px;
+	margin:0 auto 30px;
+}
+
 
 //box styling for the content
 
 .mainbg {
 	background:#ffffff;
-	border:1px solid darken($bgcolor, 10%);
 	border-radius: 3px;
 }
+
+//Main wrap
+.mainwrap {
+	width:960px;
+	max-width:100%;
+	margin:60px auto;
+	@include box-sizing;
+
+	h1, h2{
+		font-weight: 300;
+	}
+}
+
+//container for small width pages
+
+.smallcontainer {
+	width:540px;
+	max-width:100%;
+	margin:60px auto;
+	@include box-sizing;
+}
+
+.new-auc-container {
+	width:650px;
+	max-width: 100%;
+	margin:70px auto;
+	@include box-sizing;
+}
+
+.minheight {
+	min-height:500px;
+}
+
+
+//HOME PAGE
+
+.home-page-banner {
+	width:100%;
+	background: #ffffff;
+	position: relative;
+	margin:0 auto;
+	//height:500px;
+	//max-height:500px;
+	//margin-top:80px;
+
+	padding-top:120px;
+
+	.hp-banner-text {
+		text-align: center;
+		margin-bottom:60px;
+
+		h1 {
+			font-size:90%;
+			display: block;
+			text-transform: uppercase;
+			letter-spacing: 4px;
+			color: lighten($darkgrey, 40%);
+			font-family:'proxima_nova_ltsemibold';
+			margin-bottom: 10px;
+		}
+
+		p {
+			//max-width: 300px;
+			font-size:180%;
+			line-height: 160%;
+			font-weight: normal;
+			font-family: 'proxima_nova_rgregular';
+			color:#6c7073;
+
+			b {
+				color:$darkgrey;
+			}
+		}
+
+		.btn {
+			margin-top:25px;
+		}
+
+		.whitebtn {
+			margin-right:10px;
+		}
+
+		a {
+			font-size:110%;
+			margin-top:25px;
+			padding:15px 30px;
+		}
+	}
+
+
+	img {
+		//width:290px;
+		display: block;
+		margin:0 auto;
+		max-width: 100%;
+		height: auto;
+	}
+
+	.img_container {
+
+	    position: absolute;
+	    top: 0;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+
+	    text-align:center; /* Align center inline elements */
+	    font: 0/0 a;
+
+	    z-index:0;
+
+	}
+
+	.img_container:before {
+	    content: ' ';
+	    display: inline-block;
+	    vertical-align: middle;
+	    height: 100%;
+	}
+
+	.img_container img {
+	    vertical-align: bottom;
+	    display: inline-block;
+	    max-width: 100%;
+		height:auto;
+	}
+
+
+	.img_container .mobile_banner {
+		display: none;
+	}
+
+	.table {
+		height:500px;
+		display:table;
+		position: relative;
+		//z-index:999;
+
+		section {
+			z-index:1111;
+			display: table-cell; 
+			vertical-align: middle;
+			padding-left:30px;
+			text-align: center;
+		}
+
+		h1 {
+			font-size:90%;
+			display: block;
+			text-transform: uppercase;
+			letter-spacing: 4px;
+			color: lighten($darkgrey, 40%);
+			font-family:'proxima_nova_ltsemibold';
+		}
+
+		p {
+			//max-width: 300px;
+			font-size:200%;
+			line-height: 140%;
+			font-weight: normal;
+			font-family: 'proxima_nova_rgregular';
+			color:#6c7073;
+
+			b {
+				color:$darkgrey;
+			}
+		}
+
+
+
+		.whitebtn {
+			margin-right:10px;
+		}
+	
+		}
+	
+
+
+	.banner_img {
+		max-width:1200px;
+		margin:0 auto;
+	}
+
+	.hp-banner-wrap {
+		width:960px;
+		max-width: 100%;
+		left:20px;
+		margin:0 auto;
+		position: relative;
+		//z-index:1;
+
+
+	}
+
+
+}
+
+//sub nav for home page
+
+.hp-sub-nav {
+	text-align: center;
+	background: #ffffff;
+	width:100%;
+	border-top:1px solid darken($bgcolor, 7%);
+	border-bottom:1px solid darken($bgcolor, 7%);
+	padding:15px 0;
+
+	a {
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		display: inline-block;
+		text-decoration: none;
+		padding:0 20px;
+		font-family:'proxima_nova_ltsemibold';
+
+		color:lighten($darkgrey, 50%);
+
+		line-height: 200%;
+
+		&:hover {
+			color:$darkgrey;
+		}
+	}
+
+	.active-sub-link {
+		color:$darkgrey;
+	}
+}
+
+.hp-sub-nav-logged-in {
+	border-top:none;
+	margin-top:60px;
+}
+
+.activity-sub-nav {
+	background:$navbg;
+	border:none;
+	margin-bottom:10px;
+
+	a {
+		color:#ffffff;
+	}
+
+	a:hover {
+		color:$darkgreen;
+	}
+}
+
+
+//activity page & notifications
+
+.activity-page-listing, .activity-header-area, .notification-header-area {
+
+	max-width:888px;
+	width:100%;
+	padding:15px 20px 20px;
+
+	@include box-sizing;
+
+	margin:0 auto;
+
+	overflow: hidden;
+
+}
+
+.notification-header-area {
+	margin-top:70px;
+}
+
+.activity-header-area {
+	padding:10px 25px 0;
+
+	h1, a {
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		color:lighten($darkgrey, 35%);
+		font-size:80%;
+		display: inline-block;
+		line-height: 21px;
+	}
+
+	a {
+		text-decoration: none;
+		color:lighten($darkgrey, 35%);
+		font-size:100%;
+		margin:0 10px;
+
+		&:hover {
+			color:$darkgreen;
+		}
+	}
+
+	.all-activity-filter {
+		margin-left: 0;
+	}
+
+	.active-auction-activity-filter {
+		color:$darkgreen;
+
+		&:hover {
+			color:lighten($darkgrey, 35%);
+		}
+	}
+}
+
+.activity-listing {
+
+	margin:4px auto;
+
+		display: block;
+		background:#ffffff;
+		//box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 6px 14px rgba(0, 0, 0, 0.05);
+		padding:10px;
+
+		text-decoration: none;
+		font-family:'proxima_nova_ltsemibold';
+
+		a {
+			text-decoration: none;
+		}
+
+		.ava {
+			vertical-align: middle;
+		//	margin-right:10px;
+			width:15%;
+			max-width:34px;
+			min-width:34px;
+		}
+
+		.activity-text {
+			width:80%;
+			display: inline-block;
+			line-height: 22px;
+			padding:6px 10px;
+			@include box-sizing;
+		}
+
+	.activity-delete-area {
+		width:5%;
+		position: relative;
+		//overflow: hidden;
+
+		.delete-area {
+			position: absolute;
+			right:0;
+		}
+	}
+
+	.ava, .activity-text {
+		float:left;
+	}
+
+}
+
+.hp-auction-listings {
+	margin:20px auto 0;
+}
+
+.hp-auction-listings {
+	max-width:888px;
+	width:100%;
+
+	overflow: hidden;
+
+	margin:0 auto;
+}
+
+.hp-load-more-btn-wrap {
+	display: none;
+	max-width:888px;
+	width:100%;
+	margin:0 auto 20px;
+
+	padding:20px;
+
+	@include box-sizing;
+}
+
+.hp-load-more-btn-wrap .btn {
+	display: block;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 6px 14px rgba(0, 0, 0, 0.05);
+
+	color:$darkgrey;
+	background: #ffffff;
+
+	&:hover {
+	-webkit-transition: box-shadow 0.3s ease;
+			-moz-transition: box-shadow 0.3s ease;
+			-ms-transition: box-shadow 0.3s ease;
+			-o-transition: box-shadow 0.3s ease;
+			transition: box-shadow 0.3s ease;
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 8px 18px rgba(0, 0, 0, 0.15);
+	}
+
+	&:active, &:active {
+		background: lighten($bgcolor, 2%);
+	}
+}
+
+.hp-auction-listings li {
+	position: relative;
+	float:left;
+	width:33.3333%;
+
+	max-width:296px;
+
+			padding:20px;
+
+			@include box-sizing;
+
+	a {
+		display: block;
+
+		color:$darkgrey;
+
+		text-decoration: none;
+
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 6px 14px rgba(0, 0, 0, 0.05);
+
+		// -webkit-transition: -webkit-transform .15s linear;
+		// 	-moz-transition: -moz-transform .15s linear;
+		// 	transition: transform .15s linear;
+
+    // -webkit-transform: translateZ(0);
+    // -moz-transform: translateZ(0);
+    // -ms-transform: translateZ(0);
+    // -o-transform: translateZ(0);
+    // transform: translateZ(0);
+
+		&:hover {
+			// box-shadow:0 0 6px rgba(0,0,0,0.2);
+			// -moz-transform: scale(1.05, 1.05);
+			// -webkit-transform: scale(1.05, 1.05);
+			// transform: scale(1.05, 1.05);
+
+			-webkit-transition: box-shadow 0.3s ease;
+			-moz-transition: box-shadow 0.3s ease;
+			-ms-transition: box-shadow 0.3s ease;
+			-o-transition: box-shadow 0.3s ease;
+			transition: box-shadow 0.3s ease;
+
+			box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 8px 18px rgba(0, 0, 0, 0.15);
+
+		}
+
+		.hp-seller {
+			background: #ffffff;
+			padding:10px;
+			font-family:'proxima_nova_ltsemibold';
+			@include box-sizing;
+
+			text-align: center;
+		}
+
+		.hp-seller img {
+			vertical-align: middle;
+			margin-right:5px;
+		}
+
+		.hp-auc-img {
+			width:100%;
+			height:auto;
+		}
+
+		.hp-title {
+			display: block;
+			color:lighten($darkgrey, 35%);
+			text-transform: uppercase;
+			font-size:80%;
+			letter-spacing: 1px;
+			line-height: 21px;
+		}
+
+		.hp-desc {
+			font-size:105%;
+			line-height: 23px;
+			display: block;
+			font-family:'proxima_nova_ltsemibold';
+			margin-bottom:10px;
+		}
+
+		.hp-time-left {
+			color:$red;
+		}
+
+		.hp-currentbid {
+			font-size:150%;
+			margin-bottom:20px;
+		}
+	}
+
+	.hp-auction-info {
+		padding:20px;
+		background: #ffffff;
+
+		text-align: center;
+	}
+
+}
+
+
+
+//Profile
+
+.profileinfo, .profilecontent {
+	min-height:900px;
+	@include box-sizing;
+
+
+	h1 {
+			font-size:150%;
+		}
+
+	.back-to-profile-btn {
+		display: none;
+		background: $bgcolor;
+		padding:15px 5px;
+		text-decoration: none;
+		text-align: center;
+		border-bottom:1px solid darken($bgcolor, 7%);
+
+		&:hover {
+			background: darken($bgcolor, 2%);
+		}
+	}
+}
+
+//avatar bio name
+.profileinfo {
+	width:34.2%;
+	padding:20px;
+	text-align: center;
+
+	h1 {
+		text-align: left;
+	}
+
+	ul {
+		overflow: hidden;
+	}
+
+	ul li {
+		max-width:220px;
+		margin: 15px auto;
+		text-align: left;
+		position: relative;
+		overflow: hidden;
+	}
+
+	// .profilefollowbtn {
+	// 	margin-top:-10px;
+	// }
+
+	.btnpadfix {
+		padding:0 3px;
+
+		width:50%;
+		float:left;
+
+		@include box-sizing;
+	}
+
+	.verified {
+		text-align: center;
+		text-transform: uppercase;
+
+		margin-top:-10px;
+
+		color:$lightblue;
+
+		font-family:'proxima_nova_ltsemibold';
+
+		font-size:80%;
+
+		letter-spacing: 3px;
+
+	}
+
+	.instalink a {
+		display: inline-block;
+		margin-left:5px;
+	}
+
+	h2 {
+		font-family:'proxima_nova_ltsemibold';
+		text-align: center;
+	}
+
+	//margin the following links down 20px
+
+	.followlinkfix {
+		margin-top:30px;
+		margin-bottom:-15px;
+	}
+
+	//follower/following links
+
+	a {
+		text-align: left;
+		font-family:'proxima_nova_ltsemibold';
+		text-decoration: none;
+		padding:10px 0;
+		font-size:95%;
+		display: block;
+
+	}
+
+	.arrowicon {
+		position: absolute;
+		right:0;
+	}
+
+	p {
+		text-align: left;
+		line-height: 21px;
+		margin:0 auto;
+	}
+
+}
+
+//feedback history//right side of profile
+
+.profilecontent {
+	width:65.8%;
+	border-left:4px solid $bgcolor;
+
+	.mobile-profile-header {
+		display: none;
+	}
+
+	.profileactivity, .profilefeedback {
+		padding:20px;
+	}
+
+
+	.profilefeedback {
+		border-bottom:4px solid $bgcolor;
+		background:#ffffff;
+		text-align: center;
+
+		.ava {
+			vertical-align: middle;
+		}
+
+		ul.feedbackscore {
+			padding:20px 20px 15px;
+			text-align: center;
+
+			li {
+				display: inline-block;
+				padding:0 20px;
+			}
+
+			.positivescore, .neutralscore, .negativescore {
+				display: block;
+				font-size:220%;
+				font-weight: 300;
+				line-height: 120%;
+			}
+
+			.positivescore {
+				color:$darkgreen;
+			}
+
+			.neutralscore {
+				color:lighten($darkgrey, 30%);
+			}
+
+			.negativescore {
+				color:$red;
+			}
+
+			.scoredesc {
+				text-transform: uppercase;
+				font-size:70%;
+				font-family:'proxima_nova_ltsemibold';
+				letter-spacing: 1px;
+				color:lighten($darkgrey, 40%);
+			}
+		}
+
+		.previewfeedback ul li {
+			padding:0 20px;
+		}
+
+		.previewfeedback .feedback-text {
+			background:$bgcolor;
+			margin:4px auto;
+			padding:12px;
+			text-align:left;
+
+			p {
+				line-height: 20px;
+			}
+
+			.feedback-item, .feedback-purchase, .feedback-seller {
+
+				margin-top:10px;
+
+				display: block;
+
+				color:darken($bgcolor, 45%);
+
+				//letter-spacing: 2px;
+
+				//text-transform: uppercase;
+
+				a {
+					text-decoration: none;
+					color:$darkgrey;
+					font-family:'proxima_nova_ltsemibold';
+
+					&:hover {
+						color:black;
+					}
+				}
+			}
+		}
+
+		.circle {
+			display: inline-block;
+			float:left;
+			width:8px;
+			height:8px;
+			padding:3px;
+			border-radius:30px;
+			margin-top:2px;
+
+			margin-right:10px;
+		}
+
+		.circlelist {
+			border:1px solid darken($bgcolor, 20%);
+			background: #ffffff;
+			width:1px;
+			height:1px;
+			margin-top:6px;
+			margin-left:2px;
+			margin-right:15px;
+		}
+
+		.positivecircle {
+			background:$darkgreen;
+		}
+
+		.neutralcircle {
+			background:lighten($darkgrey, 30%);
+		}
+
+		.negativecircle {
+			background:$red;
+		}
+
+		.showallfeedback {
+			display: block;
+			clear:left;
+			color:lighten($darkgrey, 30%);
+			font-family:'proxima_nova_ltsemibold';
+			font-size:90%;
+			margin-top:15px;
+
+			&:hover {
+				color:lighten($darkgrey, 15%);
+			}
+		}
+
+	}
+
+
+	//preview of bids/auctions on profile page
+
+	.profileactivity {
+
+		h2 {
+			text-align: center;
+		}
+
+	}
+
+		.profile-list {
+			margin:20px auto;
+			width:100%;
+			max-width:592px;
+			overflow: hidden;
+		}
+
+		.profile-list li {
+			//padding:15px;
+
+
+			-webkit-transition: background-color .15s ease-in-out;
+			-moz-transition: background-color .15s ease-in-out;
+			transition: background-color .15s ease-in-out;
+
+			a img {
+				width:100%;
+				height:auto;
+			}
+
+
+			a {
+				float:left;
+				text-decoration: none;
+				padding:15px;
+				width:31%;
+				margin:1% 1%;
+
+				@include box-sizing; 
+
+				&:hover {
+					background: lighten($bgcolor, 2%);
+				}
+
+			}
+		}
+
+		.profiledescbox {
+			padding:10px 6px;
+			border-radius:0 0 3px 3px;
+			border-top:none;
+			max-width:175px;
+		}
+
+		.profartist, .prof-follower-username {
+			display: block;
+			font-family:'proxima_nova_ltsemibold';
+			margin-bottom:10px;
+			line-height:15px;
+		}
+
+		.prof-follower-username {
+			text-align: center;
+			color:$darkgrey
+		}
+
+		.profprice, .proftime {
+			color:lighten($darkgrey, 35%);
+			font-size:90%;
+		}
+
+		.profprice {
+			font-family:'proxima_nova_ltsemibold';
+		}
+
+		.proftime {
+			float:right;
+		}
+	
+
+
+	//preview of followers on profile page
+
+	.profile-followers-list {
+		//border-top:4px solid $bgcolor;
+
+		li {
+			//background: lighten($bgcolor, 2%);
+			//margin-bottom:.5%;
+
+			.followbtn {
+				margin-top:10px;
+			}
+
+			a {
+
+				background: lighten($bgcolor, 3%);
+				padding:25px 15px !important;
+
+				&:hover {
+					background:lighten($bgcolor, 2%) ;
+				}
+			}
+
+			a img, .profile-ava-wrap {
+				margin:0 auto;
+				width:100%;
+				max-width: 50px;
+				display: block;
+			}
+			
+			.ava {
+				border: none;
+			}
+
+			.profile-ava-wrap {
+				padding:6px;
+				border:2px solid darken($bgcolor, 8%);
+				border-radius: 50%;
+			}
+
+		}
+	}
+}
+
 
 
 //Inbox
 
-.msgscontainer {
-	width:530px;
-	max-width:100%;
-	margin:20px auto;
-	@include box-sizing;
+//new message button
 
-	min-height:500px;
+.newmsgbtn {
+	padding:10px;
+}
+
+.newmsgtxt {
+	position:relative;
+	top:3px;
 }
 
 //messages pagination nav
 
+.fullnext {
+	border-radius:0 0 3px 3px;
+}
+
+.halfprev {
+	border-radius:0 0 0 3px;
+}
+
+.halfnext {
+	border-radius:0 0 3px 0;
+}
+
+
 .fullnext, .halfprev, .halfnext {
 	text-align: center;
-	background: $unreadblue;
+	//background: $unreadblue;
+	background: $bgcolor;
 	font-size:110%;
-	font-weight: 500;
+	font-family:'proxima_nova_ltsemibold';
 
-
-	border-top:4px solid white;
+	border:4px solid white;
 
 	@include box-sizing;
 
@@ -259,14 +2493,15 @@ input.btn {
 		display: block;
 		text-decoration: none;
 		padding:25px 0;
+		color:$darkgrey;
 	}
 
 	&:hover {
-		background:darken($unreadblue, 3%);
+		background:darken($bgcolor, 3%);
 	}
 
 	&:active, &:focus {
-		background: darken($unreadblue, 5%);
+		background: darken($bgcolor, 5%);
 	}
 }
 
@@ -290,12 +2525,11 @@ input.btn {
 
 	&:first-child {
 		padding:25px 20px;
-		border-bottom:1px solid darken($bgcolor, 10%);
 	}
 
 	h1 {
 		line-height:34px;
-		font-weight: 500;
+		font-family:'proxima_nova_ltsemibold';
 	}
 
 	.adminmsg {
@@ -326,6 +2560,9 @@ a.inboxmsg {
 	text-decoration: none;
 	position:relative;
 
+	border-left:5px solid #ffffff;
+	border-right:5px solid #ffffff;	
+
 	.msgavawrap {
 		width:15%;
 		min-width:70px;
@@ -349,7 +2586,7 @@ a.inboxmsg {
 	}
 
 	.usrnme {
-		font-weight: bold;
+		font-family:'proxima_nova_ltsemibold';
 		font-size:110%;
 	}
 
@@ -370,26 +2607,28 @@ a.inboxmsg {
 
 .unreadmsg {
 	background: $unreadblue;
+
+//border:2px solid darken($unreadblue, 5%)
 }
 
 //Message Thread
 
 .msgthreadhead {
-	padding:25px 20px;
-	border-bottom: 1px solid #d2dde4;		
+	padding:25px 20px;		
 	text-align: center;
 	position: relative;
+	border-bottom:2px solid darken($bgcolor, 5%);
 
 	h1 {
 		display: inline;
 		font-size:115%;
 		color:lighten($darkgrey, 20%);
-		font-weight:500;
+		font-family:'proxima_nova_ltsemibold';
 	}
 
 	.ava34 {
 		vertical-align: middle;
-		margin-right:10px;
+		margin-right:5px;
 		margin-top:-1px;
 	}
 
@@ -397,6 +2636,7 @@ a.inboxmsg {
 		text-align: left !important;
 		position: absolute;
 		left:20px;
+		top:22px;
 		//float: left;
 	}
 
@@ -404,16 +2644,26 @@ a.inboxmsg {
 		text-align: right;
 		position: absolute;
 		right:20px;
+		border-radius: 3px;
 	}
 
 }
 
 div.msgthread {
-	min-height: 500px;
+	min-height:500px;
 	max-height:500px;
 	overflow: scroll;
 	overflow-x: hidden;
 	padding-top:5px;
+	position: relative;
+
+	ul {
+		min-height:0;
+	 	max-height:500px;
+	 	width: 100%;
+	 	position: absolute; 
+	 	bottom:0;
+	}
 
 	.sentmsg, .receivedmsg {
 		padding:8px 20px;
@@ -462,10 +2712,8 @@ div.msgthread {
 //text box styling
 
 .msgtextarea, .msgsrcharea {
-	background: #ebeef0;
-	border-top:1px solid darken(#ebeef0, 10%);
-	box-shadow: inset 0 1px #ffffff;
 	padding:10px;
+	border-top:4px solid $bgcolor;
 
 	textarea {
 		padding:6px;
@@ -476,13 +2724,13 @@ div.msgthread {
 		max-width: 100%;
 		position: relative;
 		resize:none;
-		border:1px solid #ffffff;
+		border:1px solid darken($bgcolor, 5%);
 
 		@include box-sizing;
 
 		&:focus {
 			outline:none;
-			border:1px solid darken(#ebeef0, 10%);
+			border:1px solid $lightblue;
 		}
 	}
 
@@ -531,13 +2779,13 @@ div.msgthread {
 
 	h1 {
 		text-align: center;
-		font-weight: 500;
+		font-family:'proxima_nova_ltsemibold';
 	}
 }
 
 //header section for new message
 .msgsrchareaheader {
-	border-bottom:1px solid darken(#ebeef0, 10%);
+	border-bottom:4px solid $bgcolor;
 }
 
 //list of users on the new message
@@ -567,7 +2815,7 @@ div.msgthread {
 	.signupwrap {
 		width:450px;
 		max-width:100%;
-		margin:0 auto;
+		margin:30px auto;
 		padding:50px;
 		border-radius:3px;
 
@@ -580,6 +2828,11 @@ div.msgthread {
 			line-height:30px;
 			font-weight: 300;
 			text-align: center;
+			color:lighten($darkgrey, 20%);
+		}
+
+		b {
+			color:$darkgrey;
 		}
 
 
@@ -594,7 +2847,7 @@ div.msgthread {
 			width:100%;
 			margin:15px auto;
 			border:none;
-			border-bottom:1px solid darken($bgcolor, 10%);
+			border-bottom:1px solid $bordercolor;
 
 
 			&:focus {
@@ -609,8 +2862,8 @@ div.msgthread {
 		}
 
 		input[type='checkbox'] {
-			background: red;
-			padding:100px;
+			// background: red;
+			// padding:100px;
 		}
 
 		.btn {
@@ -675,24 +2928,2641 @@ div.msgthread {
 	}
 }
 
+//split sign up page
+
+.split-sign-up-wrap {
+	max-width: 700px;
+	margin:40px auto 40px;
+
+	h1 {
+		text-align: center;
+		font-weight: normal;
+		margin-bottom:40px;
+	}
+
+		.split-sign-in {
+			clear:left;
+			margin-top:50px;
+			text-align: center;
+			display: block;
+			width:100%;
+		}
+
+	//wrap for white area 
+	.split-btn {
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 6px 14px rgba(0, 0, 0, 0.05);
+
+		color:$darkgrey;
+		background: #ffffff;
+		margin:20px 2.5%;
+		width:45%;
+		display: block;
+
+		padding:40px;
+
+		@include box-sizing;
+		text-decoration: none;
+
+		float:left;
+
+		h2, p {
+			text-align: center;
+			margin-bottom:10px;
+		}
+
+		h2 {
+			line-height: 120%;
+		}
+
+		p {
+			line-height: 18px;
+		}
+
+		.btn {
+			width:100%;
+			margin-top:10px;
+
+			@include box-sizing;
+		}
+
+		&:hover {
+		-webkit-transition: box-shadow 0.3s ease;
+				-moz-transition: box-shadow 0.3s ease;
+				-ms-transition: box-shadow 0.3s ease;
+				-o-transition: box-shadow 0.3s ease;
+				transition: box-shadow 0.3s ease;
+			box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 8px 18px rgba(0, 0, 0, 0.15);
+		}
+	}
+}
+
+.usericon, .torchicon {
+	width:125px;
+	height:125px;
+	margin:0 auto 10px;
+	display: block;
+}
+
+//new auction page
+
+//styling being reused on the majority of forms e.g. dashboard, welcome page
+
+#auction-form, #hp-load-more, #hp-loader-gif {
+	display: none;
+}
+
+#dry-pipe-options,
+#pendant-options,
+#accessories-options 
+{
+	display: none;
+}
+
+.newaucsections {
+	padding:35px 50px;
+	border-bottom:4px solid $bgcolor;
+
+	h2 {
+		font-size:120%;
+		margin-bottom:35px;
+		color:lighten($darkgrey, 15%);
+	}
+
+	.aucinput, textarea {
+		width:100%;
+		font-size:110%;
+		padding:5px 10px;
+		line-height:22px;
+
+		background:lighten($bgcolor, 2%);
+
+		&:active, &:focus {
+			background:#ffffff;
+		}
+
+	}
+
+	select {
+		display: block;
+
+		&:active, &:focus {
+			outline: 0;
+			border:1px solid $lightblue;
+		}
+	}
+
+	.btn {
+		width:100%;
+	}
+
+	.divideinput {
+		margin-bottom:30px;
+	}
+
+	// .divideinput.left input {
+	// 	max-width:145px;
+	// 	margin-right:11px;
+	// }
+
+	.divideinput.left {
+		width:31%;
+		margin-right:2%;
+	}
+
+	//margin fix for perc input
+
+	.percfix {
+		margin-right:0;
+	}
+
+	.divideinput.left label {
+		display: block;
+	}
+
+	.tip {
+		font-size:90%;
+		line-height: 18px;
+		margin-top:12px;
+		color:lighten($darkgrey, 10%);
+		padding:15px;
+		border:1px solid darken($bgcolor, 5%);
+
+		b {
+			text-transform: uppercase;
+			letter-spacing: 2px;
+		}
+	}
+
+	.required-error {
+		border:none;
+		margin-top:8px;
+		padding:8px;
+		display: none;
+	}
+
+	.dollarsign {
+		position: absolute;
+		font-family:'proxima_nova_ltsemibold';
+		top:9px;
+		left:10px;
+		font-size:110%;
+	}
+
+	.dollarinput {
+		padding-left:25px;
+		max-width:200px;
+	}
+
+	select {
+		margin-top:3px;
+
+		&:hover {
+			cursor:pointer;
+		}
+	}
+
+	.creating-auction-btn {
+		height:45px;
+		max-height:45px;
+		padding:0;
+		line-height: 45px;
+		display: none; 
+
+		img {
+			vertical-align: middle;
+			position: relative;
+			top:-1px;
+		}
+
+	}
+
+	//50% width area for inputs
+
+	.input-50-left, .input-50-right {
+		width:48%;
+	}
+
+	.input-50-left {
+		float:left;
+		margin-right: 2%;
+	}
+
+	.input-50-right {
+		float:right;
+	}
+
+	//select style for address
+
+	.address-select-style {
+		margin-top:0;
+		width:100%;
+	}
+
+}
+
+//address check box section "are the addresses the same"
+
+.address-check-box {
+	margin-top:-20px;
+}
+
+//hide billing address form unless checkbox is unchecked
+
+.billing-address-area {
+	display: none !important;
+}
+
+//images for new auction drag and drop
+
+.files {
+
+padding:20px;
+
+	.deleteaucimg {
+		display: block;
+
+		min-height:20px;
+
+		a {
+			margin-top:5px;
+			display: inline-block;
+		}
+	}
+
+	div	{
+	position: relative;
+
+	float:left;
+	padding:0 1.25% 2.5%;
+	
+	width:33.33%;
+
+	@include box-sizing;
+
+		img {
+			width:100%;
+			max-width:200px;
+			height:auto;
+		}
+	}
+}
+
+
+//drag and drop
+
+.noimgsdrag {
+	padding:60px 15px;
+
+	p {
+		font-size: 130%;
+		line-height: 130%;
+		color:darken($bgcolor, 25%);
+		text-align: center;
+
+		max-width:330px;
+		margin: 15px auto 0;
+
+		input {
+			display: none;
+		}
+
+		span {
+			font-family:'proxima_nova_ltsemibold';
+			color:$darkblue;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+
+	//add more images button
+
+	.add-more-images {
+		max-width:250px;
+		margin:-55px auto 20px;
+		display: none;
+
+		.btn:hover {
+			cursor: pointer;
+		}
+	}
+
+}
+
+.draganddropicon {
+	display: block;
+	margin: 0 auto;
+}
+
+//guidelines
+
+.auction-guidelines h2 {
+	margin-bottom:25px;
+	font-size: 110%;
+
+	.circleorder {
+		background:lighten($darkgrey, 55%);
+		color:#ffffff;
+		border:none;
+		margin-right:5px;
+		font-size:80%;
+		width:20px;
+		height:20px;
+		line-height: 20px;
+	}
+}
+
+.auction-guidelines p {
+	margin-top:-20px;
+	line-height: 21px;
+	margin-left:31px;
+	margin-bottom:15px;
+	max-width:400px;
+}
+
+//auction page
+
+
+.auctiontopwrap {
+	padding:20px 0 20px 20px;
+
+	border-bottom:4px solid $bgcolor;
+
+
+	.auctionimage {
+		width:50%;
+		position: relative;
+
+		//slider indicator
+
+		.sliderindicator {
+			position: relative;
+			//bottom:22px;
+			margin:8px auto 0;
+			overflow: hidden;
+			width:100%;
+			min-width:16px;
+			max-width:68px;
+
+			.activeind, .inactiveind {
+				width:8px;
+				height:8px;
+				border-radius: 50%;
+				//float:left;
+				display: inline-block;
+				margin:0 auto;
+				background:darken($bgcolor, 30%);
+				border:1px solid darken($bgcolor, 30%);
+
+				&:last-child {
+					margin-right:0;
+				}
+
+				&:hover {
+					cursor:pointer;
+				}
+			}
+
+			.activeind {
+				background:#ffffff;
+				border:1px solid $lightblue;
+
+				&:hover {
+					background:$lightblue;
+				}
+			}
+
+			.inactiveind:hover {
+				background:darken($bgcolor, 50%);
+				border-color:darken($bgcolor, 50%);
+			}
+		}
+
+		img {
+			display: block;
+			margin:0 auto;
+			max-width: 100%;
+			height:auto;
+		}
+
+		video {
+			width:100% !important;
+			height:auto !important;
+			margin:0 auto;
+		}
+	}
+
+	.bidarea {
+		width:50%;
+		padding:0 20px 20px 10px;
+
+		@include box-sizing;
+
+		h1{
+			font-family:'proxima_nova_ltsemibold';
+			font-size:130%;
+			line-height: 130%;
+		}
+	}
+
+	.artistheader {
+		display: block;
+	}
+
+	.artistheader, .artistnames, .productspecs, .auctimeleft {
+		text-align: center;
+	}
+
+	.productspecs {
+		padding:20px;
+		overflow: hidden;
+	}
+
+	.aucheight, .aucwidth, .aucjoint, .artistheader, .aucperc {
+		color:lighten($darkgrey, 35%);
+		text-transform: uppercase;
+		font-size:90%;
+		line-height: 21px;
+	}
+
+	.sizespec {
+		font-family:'proxima_nova_ltsemibold';
+		line-height: 18px;
+	}
+
+	.productspecs li{
+		float:left;
+		width:33.33%;
+
+		span {
+			display: block;
+		}
+	}
+
+	.rortime {
+		font-family:'proxima_nova_ltsemibold';
+		color:$red;
+		padding-right:10px;
+		font-size:110%;
+	}
+
+	#winning-bid .buyitnowtxt {
+		margin-top:0;
+	}
+
+	//message when auction ends
+
+	.auction-ended-message p {
+		line-height: 200%;
+		font-size:100%;
+
+		&:first-child {
+			font-size:130%;
+		}
+	}
+
+	.mainbids {
+		padding:25px;
+		background: $bgcolor;
+		margin-top:20px;
+
+		.currentbidtxt, .buyitnowtxt {
+			color:darken($bgcolor, 60%);
+			font-family:'proxima_nova_ltsemibold';
+
+			em {
+				font-size:80%;
+			}
+		}
+
+		.currentbidprice {
+			margin:0 auto 10px;
+
+			.bidnumber {
+				font-size:220%;
+				line-height: 150%;	
+			}
+
+			.amntbids a {
+				margin:3px auto 5px;
+				font-size:100%;
+				color:darken($bgcolor, 40%);
+			}
+		}
+
+		.reservetxt {
+			color:darken($bgcolor, 50%);
+			margin-left:10px;
+		}
+		
+		.buyitnowtxt {
+			margin-top:40px;
+		}
+
+
+		.biddollarsign {
+			position: absolute;
+			font-family:'proxima_nova_ltsemibold';
+			top:12px;
+			left:10px;
+			font-size:120%;
+		}
+
+		.biddollarinput, .placebidbtn, .btn {
+			height:40px;
+			padding-top:0;
+			padding-bottom:0;
+			line-height: 40px;
+		}
+
+		.favoritebtn {
+			//padding:0;
+			max-width:150px;
+			float:right;
+
+			background:darken($bgcolor, 30%);
+
+			&:hover {
+				background:darken($bgcolor, 45%);
+			}
+
+			&:active, &:focus {
+				background:darken($bgcolor, 50%);
+				outline: none;
+			}
+
+		}
+
+		.favorite-no-bin {
+			float:none;
+			margin-top:20px;
+		}
+
+		.favoritedbtn {
+			float:right;
+
+			color:#ffffff;
+			background: $darkyellow;
+
+			&:hover {
+				background:darken($darkyellow, 10%);
+			}
+
+			&:active, &:focus {
+				background:darken($darkyellow, 15%);
+			}
+
+		}
+
+		.biddollarinput {
+			padding-left:25px;
+			//max-width:200px;
+			width:60%;
+			font-size:120%;
+
+			margin-right:3%;
+		}
+
+		.placebidbtn {
+			width:37%;
+		}
+
+		.enter-more-error {
+			clear:left;
+			display: none;
+			padding:10px 0 0;
+			font-size:90%;
+			font-family:'proxima_nova_ltsemibold';
+		}
+
+		.tip {
+			clear:left;
+			border:1px solid darken($bgcolor, 15%);
+			border-radius:3px;
+			padding:10px;
+			font-size:95%;
+			margin-top:10px;
+		}
+
+	}
+
+	.subaucinfo {
+		padding:0 0 0 20px;
+		margin-top:10px;
+		font-size:110%;
+
+			li {
+				padding:10px 0;
+
+				.subdesc {
+					display: inline-block;
+					width:25%;
+					margin-right:2%;
+					color:lighten($darkgrey, 35%);
+				}
+			}
+		}
+
+	//loader for owl images 
+
+	.auction-image-loader {
+		width:470x;
+		max-height:200px;
+		height:auto;
+		background:#ffffff;
+		max-width:100%;
+
+		img {
+			margin: 100px auto;
+		}
+	}
+
+}
+
+//wrapper for descriptions and comments
+.desccontainer {
+	max-width:500px;
+	margin:0 auto;
+	padding:20px;
+
+	p {
+		display: block;
+		line-height: 21px;
+		font-size: 90%;
+		margin-bottom:20px;
+	}
+
+	.descheader, .desctitle, .sellertitle, .cmtheader {
+		font-size:105%;
+		line-height: 140%;
+		margin-bottom:7px;
+	}
+
+	.descheader, .sellertitle {
+		margin-bottom:20px;
+		display: block;
+	}
+
+	.ava34 {
+		vertical-align: middle;
+	}
+
+	.sllerusrnme, .cmtusrnme {
+		margin-left:5px;
+		text-decoration: none;
+		font-family:'proxima_nova_ltsemibold';
+		font-size:110%;
+	}
+
+	//button for followers on auction page
+	.aucfollowbtn {
+		width:80px;
+		font-size:90%;
+		margin-left:8px;
+	}
+
+	.descwrap {
+		border-bottom:2px solid $bgcolor
+	}
+
+	.descseller {
+		padding:20px 0;
+		border-bottom:2px solid $bgcolor;
+	}
+}
+
+.commentswrap {
+	margin-top:20px;
+
+	.circle {
+		border-radius: 50%;
+		width:4px;
+		height:4px;
+		background:$darkgrey;
+		display: inline-block;
+		vertical-align: middle;
+		margin:0 10px;
+	}
+
+	.amntcmnts {
+		font-weight: 300;
+	}
+
+	textarea {
+		width:100%;
+		max-width:500px;
+		border:1px solid $bordercolor;
+		padding:8px;
+		line-height: 19px;
+		max-height:180px;
+		height:65px;
+		margin-top:20px;
+
+		&:active, &:focus {
+			outline:0;
+			border:1px solid $lightblue;
+		}
+	}
+
+		.btn {
+			margin-top:8px;
+			width:100%;
+		}
+}
+
+.auccomments {
+	margin-top:20px;
+
+	span {
+		font-size: 80%;
+		margin-left:8px;
+		color:lighten($darkgrey, 30%);
+	}
+
+	p {
+		margin-top:10px;
+	}
+
+	li {
+		margin-bottom:20px;
+	}
+
+	.deletebtn {
+		font-family:'proxima_nova_ltsemibold';
+		color:lighten($darkgrey, 30%);
+		text-decoration: none;
+		display: block;
+		margin-top:5px;
+		width:38px;
+
+		&:hover {
+			color:$darkgrey;
+		}
+	}
+
+	.auccmntreply {
+		padding-left:25px;
+	}
+}
+
+//bid page
+
+.bid-history {
+	padding:0 20px;
+}
+
+.bid-history h1 {
+	margin-bottom:20px;
+}
+
+//amount of bids, time left
+
+.bid-history-auction-info {
+	margin-bottom:20px;
+
+	li {
+		float:left;
+		width:25%;
+
+		text-align: center;
+
+		@include box-sizing;
+	}
+}
+
+//image and title for bid histyory
+
+
+.bid-history-info {
+	width:50%;
+	padding:0 !important;
+	margin-top:10px;
+
+	h2 {
+		font-size:100%;
+	}
+
+}
+
+.bid-history-list-wrap {
+	width:50%;
+
+	li {
+		border-bottom:1px solid darken($bgcolor, 10%);
+		padding:10px;
+		//@include box-sizing;
+
+		&:nth-child(even) {
+			background: $bgcolor;
+		}
+	}
+
+	.bid-history-bid {
+		font-family:'proxima_nova_ltsemibold';
+	}
+}
+
+
+//checkout
+
+.checkoutwrap {
+	@include box-sizing;
+	width:800px;
+	max-width: 100%;
+	margin:60px auto;
+
+	.cart-list {
+		margin-bottom:20px;
+	}
+
+	h1 {
+		margin-bottom:20px;
+		padding:0 20px;
+		text-align: center;
+	}
+
+	.checkoutseller {
+		padding:20px 20px 0;
+
+		.ava{
+			margin-right:8px;
+			vertical-align: middle;
+		}
+
+		a {
+			text-decoration: none;
+			color:$darkgrey;
+		}
+	}
+
+	.subaucinfo {
+		margin-top:0;
+
+		padding:0 20px;
+	}
+
+	.auctiontopwrap {
+		border-bottom: none;
+		padding-bottom:0;
+
+
+		.subaucinfo li {
+
+			overflow: hidden;
+
+			border-bottom:1px solid $bgcolor;
+
+			i, b {
+				float:right;
+			}
+		}
+
+		li.totalprice {
+			border-bottom: none;
+		}
+
+		.checkoutbtnarea {
+			border-bottom: none !important;
+
+			.btn {
+				width:100%;
+			}
+		}
+
+	}
+
+
+	.auctiontopwrap .subaucinfo li .subdesc {
+
+		position: relative;
+
+		top:2px;
+
+		width:auto;
+		vertical-align: bottom;
+
+		font-size: 90%;
+
+
+		float:left;
+	}
+
+	.auctionimage {
+			padding:0 20px 0 0;
+
+			@include box-sizing;
+
+			img {
+				width:50%;
+			}
+
+			ul {
+				@include box-sizing;
+				width:50%;
+				float:left;
+				padding:0 15px;
+
+				.subdesc {
+					font-size: 85% !important;
+					margin-bottom:5px;
+					letter-spacing: 1px;
+				}
+
+				.thumbnailinfo {
+					width:100%;
+					display: block;
+				}
+
+				li {
+					font-size:100%;
+					line-height: 100%;
+					border-bottom: none !important;
+
+					&:first-child {
+						padding:0;
+					}
+				}
+			}
+		}
+
+}
+
+//checkout process
+
+
+.checkout-header {
+	background: #ffffff;
+	border-bottom:4px solid $bgcolor;
+	padding:10px;
+
+	h1 {
+		text-transform: uppercase;
+		margin-top:20px;
+		font-size:90%;
+		letter-spacing: 2px;
+		color:lighten($darkgrey, 30%);
+	}
+}
+
+.checkout-header .logo {
+	width:45px;
+	height:66px;
+	background-size:45px 66px;
+	margin:0 auto;
+}
+
+.checkout-process {
+	margin:0 auto 30px;
+
+	.mainbg .auctiontopwrap {
+		max-width:300px;
+		width:40%;
+
+		.bidarea, .auctionimage {
+			width:100%;
+		}
+
+		.bidarea {
+			padding:15px 0;
+		}
+
+		.auctionimage {
+
+			.subaucinfo {
+				width:100%;
+				float:none;
+				text-align: center;
+
+				.subdesc {
+					float:none;
+					padding-bottom:4px;
+					top:0;
+				}
+			}
+
+			p {
+				line-height: 19px;
+				margin-bottom:15px;
+			}
+
+			h1 {
+				font-size: 120%;
+			    color: #4b5f6a;
+			    margin-bottom:10px;
+			    text-align: left;
+			    padding:0;
+			}
+
+			img {
+				display: block;
+				margin:0 auto 10px;
+				border-radius: 100%;
+				border:3px solid #ffffff;
+				box-shadow:0 0 0 1px darken($bgcolor, 10%);
+			}
+		}
+
+		.subaucinfo {
+			padding:0;
+			clear:left;
+		}
+	}
+
+	.checkout-shipping-address {
+		width:55%;
+		border-left:4px solid $bgcolor;
+		padding-bottom:20px;
+	}
+
+	.dashboard-content-area .db-inner-wrap {
+		margin-top:0;
+	}
+
+	.ccinput {
+		background: #f7f9fb url('icons/cc_icon.png') no-repeat center right;
+		background: #f7f9fb url('icons/cc_icon.svg') no-repeat center right;
+
+		&:active, &:focus {
+			background: #ffffff url('icons/cc_icon_dark.png') no-repeat center right;
+			background: #ffffff url('icons/cc_icon_dark.svg') no-repeat center right;
+		}
+	}
+
+	.exp-date-cvv {
+		width:31.333%;
+		float:left;
+		@include box-sizing;
+		margin:0 1% 30px;
+
+		.select-style {
+			margin-top:0;
+			width:100%;
+		}
+	}
+
+	.complete-order-btn {
+		margin-bottom:100px;
+	}
+}
+
+//dashboard & help center
+
+.mobile-db-nav {
+	display: none;
+}
+
+.dashboardbg {
+	background:$navbg;
+}
+
+.dashboard-nav {
+	width:30%;
+}
+
+.db-nav-section {
+	margin-top:20px;
+
+	h3, a {
+		padding:18px 20px;
+		display: block;
+	}
+
+	h3 {
+		font-size: 90%;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		color:lighten($darkgrey, 35%);
+		color:$darkgreen;
+		font-family:'proxima_nova_ltsemibold';
+	}
+
+	a {
+		text-decoration: none;
+
+		position: relative;
+
+		color:$darkgrey;
+		color:#eefaff;
+
+		height:53px;
+		max-height: 53px;
+
+		@include box-sizing;
+
+		margin-bottom: 1px;
+
+
+		font-family:'proxima_nova_ltsemibold';
+		border-left: 4px solid $navbg;
+
+		&:hover {
+			background: $dbactive;
+			border-left: 4px solid $darkgreen;
+		}
+	}
+
+	.unpaid-notification {
+		//position: absolute;
+		//top:15px;
+		background: #eefaff;
+		border-radius: 50%;
+		display: inline-block;
+		text-align: center;
+		//font-size:75%;
+		line-height: 20px;
+		color:$navbg;
+		width:20px;
+		height:20px;
+		margin-left:5px;
+	}
+}
+
+.dashboard-main-header {
+
+	text-transform: uppercase;
+
+	font-size:80%;
+
+	letter-spacing: 3px;
+
+	text-align: center;
+
+	color:#ffffff;
+	background: #ffffff;
+
+	//width:30%;
+
+	@include box-sizing;
+
+	h1 {
+		background: $darkgreen;
+		width:30%;
+
+		@include box-sizing;
+	}
+}
+
+.dashboard-main-header h1, .db-content-header {
+	padding:25px 15px;
+	//border-top:4px solid $darkgrey;
+	//background: darken($bgcolor, 10%);
+	//font-family:'proxima_nova_ltsemibold';
+}
+
+.dashboard-content-area {
+	background: #ffffff;
+	width:70%;
+	min-height: 800px;
+	//border-left:5px solid $bgcolor;
+	@include box-sizing;
+
+	//h2 header for content area
+
+	.db-content-header {
+		padding: 25px 40px;
+		//background: darken($bgcolor, 5%);
+		font-family:'proxima_nova_ltsemibold';
+	}
+
+	.db-inner-wrap {
+		margin-top:-70px;
+	}
+
+	.draganddropicon {
+		margin:0 0 20px;
+	}
+}
+
+.settings-content {
+	padding:20px 40px;
+}
+
+//dashboard pagination
+
+.db-pagination {
+	padding:40px;
+	@include box-sizing;
+
+	.pag-prev, .pag-next, .pag-full {
+		float:left;
+		width:49%;
+		margin:0 .5%;
+		display: block;
+		text-align: center;
+		text-decoration: none;
+		background: $bgcolor;
+		font-family:'proxima_nova_ltsemibold';
+		padding:20px 0;
+
+		&:hover {
+			background: darken($bgcolor, 3%);
+			color:$darkblue;
+		}
+	}
+
+	.pag-full {
+		width:50%;
+		margin:0 auto;
+		float:none;
+	}
+}
+
+//leave feedback
+
+//div for image, title, and seller
+
+.leave-feedback-description {
+	margin-bottom:20px;
+
+	h2 {
+		display: block;
+		margin:0 5px 12px;
+	}
+}
+
+.leave-feedback-image {
+	padding:6px;
+	border:1px solid darken($bgcolor, 10%);
+	margin-right:5px;
+}
+
+.feedback-radio-button-wrap {
+	margin:20px auto;
+	padding:15px;
+	border:1px solid darken($bgcolor, 5%);
+
+	h2 {
+		font-size: 110%;
+		margin-bottom:20px;
+	}
+
+	input[type='radio'] {
+		-webkit-appearance:none;
+		width:20px;
+		height:20px;
+		vertical-align: middle;
+		margin-right:4px;
+		border-radius: 100%;
+		border-color:darken($bgcolor, 20%);
+		padding:3px;
+	}
+
+	input[type='radio']:before {
+	  content:'';
+	  display:block;
+	  width:100%;
+	  height:100%;
+	  margin: 0 auto;    
+	  border-radius:100%;    
+	}
+
+	.positive-radio:checked:before {
+		background: $darkgreen;
+	}
+
+	.neutral-radio:checked:before {
+		background: lighten($darkgrey, 30%);
+	}
+
+	.negative-radio:checked:before {
+		background: $red;
+	}
+
+	input[type='radio']:hover {
+	  box-shadow:0 0 5px 0px darken($bgcolor, 20%) inset;
+	  cursor: pointer;
+	}
+
+	// .positive-radio:active, .positive-radio:focus {
+	// 	background: $darkgreen;
+	// }
+
+	// .neutral-radio:active, .neutral-radio:focus {
+	// 	background: lighten($darkgrey, 30%);
+	// }
+
+	// .negative-radio:active, .negative-radio:focus {
+	// 	background: $red;
+	// }
+
+	label {
+		display: inline-block;
+		margin-right:10px;
+	}
+}
+
+//favorited auctions
+
+
+.favorited-auctions-list {
+
+	padding:10px 40px;
+
+	.favorited-auc-link {
+		display: block;
+		padding:20px 10px;
+
+		//@include box-sizing;
+
+		&:hover {
+			background: $bgcolor;
+		}
+
+	}
+
+	.favorited-auctions-list-item {
+		background: lighten($bgcolor, 2%);
+		display: block;
+		text-align: center;
+
+		&:first-child {
+			background: $navbg;
+		}
+
+		&:nth-child(even) {
+			background: #ffffff;
+		}
+
+		em, h2 {
+			display: block;
+			font-family:'proxima_nova_ltsemibold';
+			padding:5px 0;
+			line-height: 18px;
+		}
+
+		.title, h2 {
+			color:darken($bgcolor, 25%);
+			font-size:80%;
+			letter-spacing: 2px;
+			text-transform: uppercase;;
+		}
+
+		.title-info {
+			color:$lightblue;
+		}
+
+		//no unleft feedback message
+
+		h3 {
+			padding:15px;
+		}
+
+		ul {
+			width:100%;
+		}
+
+		ul li {
+			width:33.3333%;
+			float:left;
+			padding:0 10px;
+			@include box-sizing;
+		}
+
+		//leave feedback page
+
+		.leave-feedback-page-btn {
+			margin-top:8px;
+			min-width: 150px;
+		}
+
+		.img-list-container {
+			max-width: 60px;
+		}
+
+		.img-list-container img {
+			display: inline-block;
+			border-radius:100%;
+			margin:3px auto 0;
+		}
+
+		.title-container .title-info {
+			margin-top:15px;
+			//text-align: left;
+		}
+
+		.leave-feedback-btn-container {
+			float: right;
+		}
+
+	}
+}
+
+//won auctions 
+
+.won-auctions-list .favorited-auctions-list-item {
+	padding:20px 10px;
+	border-bottom:1px solid darken($bgcolor, 5%);
+
+	&:first-child {
+		padding:0;
+		border:none;
+	}
+}
+
+.won-auctions-list .title-info a {
+	display: inline;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+		background: none;
+	}
+}
+
+.won-item-tracking-info {
+	display: block;
+	clear:left;
+	width:100% !important;
+	text-align: left;
+	font-family:'proxima_nova_ltsemibold';
+	padding-top:16px !important;
+	line-height: 21px;
+	color:lighten($darkgrey, 20%);
+}
+
+// .favorited-auctions-inner-list {
+
+
+// }
+
+
+//help center
+
+.help-center {
+
+	background: darken($bgcolor, 3%);
+
+	.db-nav-section a {
+		color:$darkgrey;
+		border-left: 4px solid darken($bgcolor, 3%);
+
+		&:hover {
+			background: darken($bgcolor, 7%);
+			border-left: 4px solid $lightblue;
+		}
+	}
+
+	.dashboard-main-header h1 {
+			background: $lightblue;
+	}
+}
+
+//search page
+
+.search-header, .amnt-results {
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	display: block;
+}
+
+.artist-search-result {
+	max-width:296px !important;
+
+	li {
+		float: none;
+		width:100% !important;
+	}
+}
+
+.artist-search-result li a {
+	background: #ffffff;
+	padding-top:20px;
+	img {
+		display: block;
+		margin:0 auto;
+	}
+
+	.hp-auction-info {
+		padding:10px 20px 20px;
+	}
+}
+
+.searchpagebox {
+	margin:60px auto 20px;
+	padding:20px;
+
+	@include box-sizing;
+
+	width:100%;
+	max-width:888px;
+
+	.searchbox { 
+		width:100%;
+		max-width:888px;
+
+		padding:5px 40px 5px 10px;
+		background: #ffffff;
+		position: relative;
+	}
+
+	.searchbtn {
+		top:13px;
+	}
+
+	.search-page-icon-fix {
+		position: absolute !important;
+	}
+}
+
+.search-header {
+	line-height: 150%;
+	font-size:120%;
+	padding:20px;
+	clear:left;
+}
+
+.amnt-results {
+	color:lighten($darkgrey, 30%);
+	margin-bottom:10px;
+}
+
+//welcome page
+
+.welcome-page-wrap {
+	
+	
+	padding:20px;
+
+	@include box-sizing;
+
+	.welcome-section {
+		margin:0 auto 20px;
+		padding:20px;
+		background: #ffffff;
+		max-width:500px;
+	}
+
+	h1 {
+		//text-transform: uppercase;
+		font-size:110%;
+		letter-spacing: 1px;
+		text-align: center;
+		line-height: 140%;
+	}
+
+	.newaucsections {
+		padding:35px 10px;
+	}
+
+	h2 {
+		font-size:110%;
+		line-height: 120%;
+	}
+
+	.circleorder {
+		margin-right:10px;
+		width:25px;
+		height:25px;
+		line-height: 25px;
+		float:left;
+		vertical-align: middle;
+		margin-top:-3px;
+	}
+
+	p {
+		margin-top: 15px;
+		line-height: 21px;
+	}
+
+	.add-photo-text {
+		text-align: center;
+		margin-bottom:30px;
+		font-size:120%;
+	}
+
+	#fileupload {
+		display: none;
+	}
+
+	.skipbtn {
+		margin-top:10px;
+		@include box-sizing;
+	}
+
+}
+
+//footer 
+
+.no-footer {
+	display: none;
+}
+
+footer {
+	background: #ffffff;
+	border-top:1px solid darken($bgcolor, 7%);
+	width:100%;
+	position: absolute;
+	left:0;
+
+	.footer-wrap {
+		max-width:960px;
+		padding:20px;
+		margin:0 auto;
+		@include box-sizing
+	}
+
+	.footer-link-list {
+		text-align: center;
+
+		li {
+			display: inline-block;
+			margin:0 10px;
+
+			a {
+				text-transform: uppercase;
+				text-decoration: none;
+				font-size:80%;
+				font-family:'proxima_nova_ltsemibold';
+				color:darken($bgcolor, 30%);
+				letter-spacing: 1px;
+				line-height: 28px;
+
+				&:hover {
+					color:darken($bgcolor, 40%);
+					border-bottom: 2px solid darken($bgcolor, 10%);
+				}
+			}
+		}
+	}
+
+	.footerlogo {
+
+		display: block;
+		margin-top:30px;
+
+		.logo {
+			width: 35px;
+	   		height: 49px;
+	    	background-size: 35px 49px;
+	    	float:none !important;
+	    	margin:0 auto;
+    	}
+	}
+
+	.copyright {
+		margin-top:30px;
+		text-align: center;
+		text-transform: uppercase;
+		font-size:70%;
+		font-family:'proxima_nova_ltsemibold';
+		color:darken($bgcolor, 30%);
+		letter-spacing: 1px;
+		line-height: 18px;
+	}
+}
+
+
 
 @media only screen 
-and (max-width : 500px) {
+and (max-width :960px) {
 
-	a.inboxmsg {
-		padding:25px 10px;
+	.mainwrap, .hp-sub-nav-logged-in {
+		margin-top:56px;
 	}
+
+	//text for main navigation
+	.navtxt {
+		display: none;
+	}
+
+	.messageicon, .dashboardicon, .activityicon, .notificationicon {
+		margin:0 5px;
+	}
+
+	.activity-header-area {
+		text-align: center;
+	}
+
+}
+
+@media only screen 
+and (max-width :860px) {
+
+	.bid-history-info, .bid-history-list-wrap {
+		width:100%;
+	}
+
+
+}
+
+
+
+@media only screen 
+and (max-width : 736px ) {
+
+	.mobilenavheader {
+		display: block;
+	}
+
+	.mainnavwrap {
+		display: none;
+	}
+
+	body {
+		background: #ffffff;
+		padding:0;
+	}
+
+	.checkoutwrap {
+		margin-top:80px;
+	}
+
+	.checkout-process {
+		margin-top:0;
+
+		.auctionimage {
+			margin-top:20px;
+		}
+	}
+
+	//flash
+
+#flashmessage.gen-flash {
+		margin:77px auto -55px;
+		max-width: 960px;
+		padding:0 20px;
+}
+
+//checkout flash
+
+#flashmessage.checkout-flash {
+	padding:20px 20px 0;
+}
+
+
+#flashmessage.profile-flash-fix {
+	margin-bottom:-35px;
+}
+
+	.mainbg .profile-general-info {
+		display: none;
+	}
+
+	.profilecontent {
+		border-left:none;
+
+		.back-to-profile-btn {
+			display: block;
+		}
+
+		.mobile-profile-header {
+			display: block;
+			font-size:130%;
+		}
+
+		.desktop-profile-header {
+			display: none;
+		}
+	}
+
+	.bgfix {
+		background: $bgcolor;
+		padding:20px;
+	}
+
+	.hp-bgfix {
+		background: $bgcolor;
+	}
+
+		
+	.hp-auction-listings {
+		max-width:592px;
+	}
+
+	.hp-auction-listings li {
+		width:50%;
+	}
+
+	.hp-sub-nav a {
+		padding:0 10px;
+		font-size:80%;
+	}
+
+	.auctiontopwrap {
+		padding:20px 0;
+
+		.artistnames {
+			padding:0 15px;
+			display: block;
+		}
+	}
+
+	.checkoutwrap .auctiontopwrap {
+		padding:20px 0 20px 10px;
+		background: lighten($bgcolor, 5%);
+		border-bottom: 1px solid darken($bgcolor, 5%);
+
+		.auctionimage ul .subdesc {
+			letter-spacing: 0;
+		}
+	}
+
+	.checkoutwrap .mainbg {
+		margin-bottom:0;
+	}
+
+	.checkoutwrap .checkoutseller {
+			padding:20px;
+			background:$bgcolor;
+			border-bottom: 1px solid darken($bgcolor, 5%);
+		}
+
+	//checkout process
+
+	.checkout-process {
+
+		.mainbg .auctiontopwrap {
+			float:none;
+			margin:0 auto;
+			border-bottom:none;
+			width:100%;
+			padding:0 20px;
+			@include box-sizing;
+
+			.bidarea {
+				padding:0 0 15px;
+				margin-top:0;
+			}
+
+		}
+
+		.checkout-shipping-address {
+			width:100%;
+			border-left:4px solid $bgcolor;
+
+			h2 {
+				text-align: center;
+			}
+		}
+	}
+
+	.auctiontopwrap .auctionimage, .auctiontopwrap .bidarea,
+	.profileinfo, .profilecontent {
+		width:100% !important;
+		padding:0;
+	}
+
+	.auctiontopwrap .auctionimage {
+		padding:0 20px;
+		@include box-sizing;
+	}
+
+	.auctiontopwrap .bidarea {
+		margin-top:20px;
+
+		font-size:90%;
+
+		.biddollarsign {
+			top:13px;
+		}
+	}
+
+	.desccontainer {
+		font-size:95%;
+	}
+
+	.profileinfo, .profilecontent {
+		min-height: 0;
+
+		//header text for "About" on profile
+		.abttxt {
+			display: none;
+		}
+	}
+
+	.profileinfo {
+		border-right:none;
+		border-bottom:4px solid $bgcolor;
+
+		h1 {
+			margin-top:10px;
+			text-align: center;
+		}
+
+		.profileava img {
+			margin:15px auto 0;
+		}
+
+	}
+
+	.newaucsections {
+		border-width:2px;
+	}
+
+
+	.profilecontent .profile-list li a {
+		width:48%;
+		padding:8px;
+	}
+
+	.profilecontent .profile-followers-list .profile-list a {
+		width:31%;
+		padding:0;
+	}
+
+	//dashboard
+
+	.mobile-db-nav {
+		display: block;
+		color:$darkgreen;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-size:80%;
+
+		em {
+			display: block;
+			margin:0 auto;
+		}
+
+		.auctions-nav-toggle, .account-nav-toggle, .payment-nav-toggle {
+			width:33.3333%;
+			float:left;
+			text-align: center;
+
+			padding:15px;
+
+			@include box-sizing;
+
+			font-family:'proxima_nova_ltsemibold';
+			line-height: 28px;
+
+			&:hover {
+				cursor:pointer;
+				background: $dbactive;
+			}
+		}
+	}
+
+	.dashboard-main-header h1 {
+		width:100%;
+	}
+
+	.dashboard-nav {
+		width:100%;
+
+		h3 {
+			display: none;
+		}
+
+		.db-nav-section-list {
+			width:100%;
+		}
+
+	}
+
+	.db-active-nav {
+		background: $dbactive;
+		background: lighten($navbg, 4%);
+	}
+
+	.db-nav-section-auction, .db-nav-section-payment, .db-nav-section-account {
+		//display: none;
+		background: lighten($navbg, 4%);
+
+		ul, li {
+			overflow: hidden;
+		}
+	}
+
+	.help-center .db-nav-section-auction {
+		background: darken($bgcolor, 3%);
+	}
+
+	.help-center .dashboard-main-header h1:hover {
+		cursor: pointer;
+		background: darken($lightblue, 8%);
+	}
+
+	.db-nav-section-auction {
+	//	display: block;
+	}
+
+	.db-nav-section-payment {
+		//display: block;
+	}
+
+	.db-nav-section {
+		margin-top:0;
+	}
+
+	.db-nav-section a {
+		border-left: none;
+	}
+
+	.db-nav-section a:hover {
+		border-left: none;
+	//	border-bottom:4px solid $darkgreen;
+	}
+
+	.db-nav-section .db-active {
+		//background: $navbg;
+		border-left: none;
+		//border-bottom:4px solid $darkgreen;
+	}
+
+	.dashboard-content-area {
+
+	width:100%;
+
+		.db-inner-wrap {
+				margin-top:0;
+			}
+	}
+
+	.bid-history-auction-info li {
+		width:50%;
+		text-align: left;
+		padding:10px;
+		@include box-sizing;
+	}
+
+
+	.favorited-auctions-list {
+		padding:10px 0;
+	}
+}
+
+
+@media only screen
+and (max-width :580px) {
+
+
+	.hp-banner-text {
+		font-size:80%;
+	}
+
+	.hp-sub-nav a {
+		padding:0 5px;
+		font-size:80%;
+	}
+
+	.smallcontainer {
+		width:100%;
+	}
+
+
+	.bgfix {
+		background: #ffffff;
+		padding:0;
+	}
+
+	.minheight {
+		min-height: auto;
+	}
+
+
+	.msgthreadhead {
+		position: fixed;
+		z-index:1;
+		background: #ffffff;
+		width:100%;
+		top:57px;
+
+		padding:10px 20px;
+
+		@include box-sizing;
+	}
+
+	#fixed-message-fix {
+		margin-bottom:100px;
+		clear:both;
+		min-height: 400px;
+	}
+
+	div.msgthread {
+
+		position: relative;
+
+		margin-top:120px;
+
+
+		min-height: auto;
+		max-height:none;
+
+		overflow:visible;
+
+		//position: static;
+
+		ul {
+			max-height: 100%;
+			//top:120px;
+			//margin-bottom:120px;
+			position: relative;
+			max-height:none;
+		}
+
+	}
+
 
 	.msgthreadhead .leftbtn {
 		left:10px;
+		padding:10px;
+		top:9px;
 	}
 
 	.msgthreadhead .rightbtn {
 		right:10px;
 	}
 
+
+	//make text area on message thread fixed for mobile
+
+	.msgtextmobilefix {
+		position: fixed;
+		bottom:0;
+		width:100%;
+		
+		@include box-sizing;
+
+		background: $bgcolor;
+
+		border:none;
+
+		padding:8px 10px;
+
+		.btn {
+			margin-top:5px;
+			min-height: 30px;
+			max-height:30px;
+			line-height: 30px;
+		}
+
+		textarea {
+			    -webkit-appearance: none;
+			    min-height:35px;
+			    max-height:35px;
+			    padding:2px 5px;
+			    line-height: 19px;
+		}
+	}
+
+	.db-pagination {
+		padding:40px 10px;
+	}
+
+}
+
+
+@media only screen 
+and (max-width :500px) {
+
+	.mobilenavheader .mobile-search-icon {
+		display: block;
+	}
+
+	.mobilenavheader nav {
+		display: none;
+	}
+
+	.hp-auction-listings {
+		max-width:296px;
+	}
+
+	.hp-auction-listings li {
+		width:100%;
+		padding:15px;
+	}
+
+	a.inboxmsg {
+		padding:25px 10px;
+	}
+
 	.signupwrap {
 		padding:30px;
 	}
 
+	.profilecontent {
+		font-size:90%;
+	}
+
+	.profilefeedback {
+		padding:20px 0 !important;
+	}
+
+	.profilecontent .profilefeedback ul.feedbackscore {
+		padding:20px 0;
+
+		li {
+			padding:0 8px;
+
+			.positivescore, .negativescore, .neutralscore {
+				font-size:150%;
+			}
+		}
+	}
+
+	.newaucsections {
+		padding:35px 20px;
+
+		.dollarinput, select {
+			max-width: 100%;
+			width:100%;
+		}
+	}
+
+	.settings-content {
+		padding:10px 40px;
+	}
+
+	.leave-feedback-description img {
+		margin-bottom:20px;
+	}
+
+	.leave-feedback-description h2 {
+		font-size:90%;
+	}
+
+	//images for new auction drag and drop
+
+	.newaucimgs {
+
+		li 	{
+			margin-right:5px;
+			margin-bottom:5px;
+			width:45%;
+		}
+
+	}
+
+	.newaucsections .divideinput.left {
+		width:100%;
+		margin-right:2%;
+	}
+
+	.profilecontent .profile-followers-list .profile-list a {
+		width:48%;
+		padding:0;
+	}
+
+	.split-sign-up-wrap {
+		padding:0 30px;
+
+
+	}
+
+	.split-sign-up-wrap .split-btn {
+		float:none;
+		width:100%;
+		margin:20px auto;
+	}
+
+	.newaucsections .input-50-left, .newaucsections .input-50-right {
+		width:100%;
+		margin-right: 0;
+	}
+
+
+
+}
+
+@media only screen 
+and (max-width :490px) {
+
+	#logged-out-mobile-nav .searchnavwrap {
+		display: none;
+	}
+
+	#logged-out-mobile-nav .logo {
+		margin-bottom:5px;
+	}
+
+	.favorited-auctions-list .favorited-auctions-list-item .img-list-container
+	{
+		width:50%;
+	}
+
+	.favorited-auctions-list .favorited-auctions-list-item .title-container {
+		width:60%;
+	}
+
+	.favorited-auctions-list .favorited-auctions-list-item .leave-feedback-btn-container,
+	.favorited-auctions-list .favorited-auctions-list-item .leave-feedback-btn-container .btn
+	 {
+	 	width:100%
+	}
+
+}
+
+@media only screen 
+and (max-width :350px) {
+
+	.hp-sub-nav a {
+		padding:0 15px;
+		font-size:80%;
+	}
+
+	.profilecontent .profile-list li a, .profilecontent .profile-followers-list .profile-list a {
+		width:100%;
+		padding:0;
+
+		.profiledescbox {
+			max-width:100%;
+		}
+	}
+
+	.mobilenavheader .logo {
+		margin-right: 5px;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+/* 
+ * 	Core Owl Carousel CSS File
+ *	v1.3.3
+ */
+
+/* clearfix */
+.owl-carousel .owl-wrapper:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+/* display none until init */
+.owl-carousel{
+	display: none;
+	position: relative;
+	width: 100%;
+	-ms-touch-action: pan-y;
+}
+.owl-carousel .owl-wrapper{
+	display: none;
+	position: relative;
+	-webkit-transform: translate3d(0px, 0px, 0px);
+}
+.owl-carousel .owl-wrapper-outer{
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+.owl-carousel .owl-wrapper-outer.autoHeight{
+	-webkit-transition: height 500ms ease-in-out;
+	-moz-transition: height 500ms ease-in-out;
+	-ms-transition: height 500ms ease-in-out;
+	-o-transition: height 500ms ease-in-out;
+	transition: height 500ms ease-in-out;
+}
+	
+.owl-carousel .owl-item{
+	float: left;
+}
+.owl-controls .owl-page,
+.owl-controls .owl-buttons div{
+	cursor: pointer;
+}
+.owl-controls {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* mouse grab icon */
+.grabbing { 
+    cursor:url(grabbing.png) 8 8, move;
+}
+
+/* fix */
+.owl-carousel  .owl-wrapper,
+.owl-carousel  .owl-item{
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility:    hidden;
+	-ms-backface-visibility:     hidden;
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+}
+
+
+/*
+* 	Owl Carousel Owl Demo Theme 
+*	v1.3.3
+*/
+
+.owl-theme .owl-controls{
+	margin-top: 10px;
+	text-align: center;
+}
+
+/* Styling Pagination*/
+
+.owl-theme .owl-controls .owl-page{
+	display: inline-block;
+	zoom: 1;
+	*display: inline;/*IE7 life-saver */
+}
+.owl-theme .owl-controls .owl-page span{
+	display: block;
+	width: 12px;
+	height: 12px;
+	margin: 5px 7px;
+	filter: Alpha(Opacity=50);/*IE7 fix*/
+	opacity: 0.5;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	background: darken($bgcolor, 30%);
+}
+
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span{
+	filter: Alpha(Opacity=100);/*IE7 fix*/
+	opacity: 1;
+}
+
+/* If PaginationNumbers is true */
+
+.owl-theme .owl-controls .owl-page span.owl-numbers{
+	height: auto;
+	width: auto;
+	color: #FFF;
+	padding: 2px 10px;
+	font-size: 12px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+
+/* preloading images */
+.owl-item.loading{
+	min-height: 150px;
+	background: url(AjaxLoader.gif) no-repeat center center
+}
+
+/* 
+ *  Owl Carousel CSS3 Transitions 
+ *  v1.3.2
+ */
+
+.owl-origin {
+	-webkit-perspective: 1200px;
+	-webkit-perspective-origin-x : 50%;
+	-webkit-perspective-origin-y : 50%;
+	-moz-perspective : 1200px;
+	-moz-perspective-origin-x : 50%;
+	-moz-perspective-origin-y : 50%;
+	perspective : 1200px;
+}
+/* fade */
+.owl-fade-out {
+  z-index: 10;
+  -webkit-animation: fadeOut .7s both ease;
+  -moz-animation: fadeOut .7s both ease;
+  animation: fadeOut .7s both ease;
+}
+.owl-fade-in {
+  -webkit-animation: fadeIn .7s both ease;
+  -moz-animation: fadeIn .7s both ease;
+  animation: fadeIn .7s both ease;
+}
+/* backSlide */
+.owl-backSlide-out {
+  -webkit-animation: backSlideOut 1s both ease;
+  -moz-animation: backSlideOut 1s both ease;
+  animation: backSlideOut 1s both ease;
+}
+.owl-backSlide-in {
+  -webkit-animation: backSlideIn 1s both ease;
+  -moz-animation: backSlideIn 1s both ease;
+  animation: backSlideIn 1s both ease;
+}
+/* goDown */
+.owl-goDown-out {
+  -webkit-animation: scaleToFade .7s ease both;
+  -moz-animation: scaleToFade .7s ease both;
+  animation: scaleToFade .7s ease both;
+}
+.owl-goDown-in {
+  -webkit-animation: goDown .6s ease both;
+  -moz-animation: goDown .6s ease both;
+  animation: goDown .6s ease both;
+}
+/* scaleUp */
+.owl-fadeUp-in {
+  -webkit-animation: scaleUpFrom .5s ease both;
+  -moz-animation: scaleUpFrom .5s ease both;
+  animation: scaleUpFrom .5s ease both;
+}
+
+.owl-fadeUp-out {
+  -webkit-animation: scaleUpTo .5s ease both;
+  -moz-animation: scaleUpTo .5s ease both;
+  animation: scaleUpTo .5s ease both;
+}
+/* Keyframes */
+/*empty*/
+@-webkit-keyframes empty {
+  0% {opacity: 1}
+}
+@-moz-keyframes empty {
+  0% {opacity: 1}
+}
+@keyframes empty {
+  0% {opacity: 1}
+}
+@-webkit-keyframes fadeIn {
+  0% { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes fadeIn {
+  0% { opacity:0; }
+  100% { opacity:1; }
+}
+@keyframes fadeIn {
+  0% { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes fadeOut {
+  0% { opacity:1; }
+  100% { opacity:0; }
+}
+@-moz-keyframes fadeOut {
+  0% { opacity:1; }
+  100% { opacity:0; }
+}
+@keyframes fadeOut {
+  0% { opacity:1; }
+  100% { opacity:0; }
+}
+@-webkit-keyframes backSlideOut {
+  25% { opacity: .5; -webkit-transform: translateZ(-500px); }
+  75% { opacity: .5; -webkit-transform: translateZ(-500px) translateX(-200%); }
+  100% { opacity: .5; -webkit-transform: translateZ(-500px) translateX(-200%); }
+}
+@-moz-keyframes backSlideOut {
+  25% { opacity: .5; -moz-transform: translateZ(-500px); }
+  75% { opacity: .5; -moz-transform: translateZ(-500px) translateX(-200%); }
+  100% { opacity: .5; -moz-transform: translateZ(-500px) translateX(-200%); }
+}
+@keyframes backSlideOut {
+  25% { opacity: .5; transform: translateZ(-500px); }
+  75% { opacity: .5; transform: translateZ(-500px) translateX(-200%); }
+  100% { opacity: .5; transform: translateZ(-500px) translateX(-200%); }
+}
+@-webkit-keyframes backSlideIn {
+  0%, 25% { opacity: .5; -webkit-transform: translateZ(-500px) translateX(200%); }
+  75% { opacity: .5; -webkit-transform: translateZ(-500px); }
+  100% { opacity: 1; -webkit-transform: translateZ(0) translateX(0); }
+}
+@-moz-keyframes backSlideIn {
+  0%, 25% { opacity: .5; -moz-transform: translateZ(-500px) translateX(200%); }
+  75% { opacity: .5; -moz-transform: translateZ(-500px); }
+  100% { opacity: 1; -moz-transform: translateZ(0) translateX(0); }
+}
+@keyframes backSlideIn {
+  0%, 25% { opacity: .5; transform: translateZ(-500px) translateX(200%); }
+  75% { opacity: .5; transform: translateZ(-500px); }
+  100% { opacity: 1; transform: translateZ(0) translateX(0); }
+}
+@-webkit-keyframes scaleToFade {
+  to { opacity: 0; -webkit-transform: scale(.8); }
+}
+@-moz-keyframes scaleToFade {
+  to { opacity: 0; -moz-transform: scale(.8); }
+}
+@keyframes scaleToFade {
+  to { opacity: 0; transform: scale(.8); }
+}
+@-webkit-keyframes goDown {
+  from { -webkit-transform: translateY(-100%); }
+}
+@-moz-keyframes goDown {
+  from { -moz-transform: translateY(-100%); }
+}
+@keyframes goDown {
+  from { transform: translateY(-100%); }
+}
+
+@-webkit-keyframes scaleUpFrom {
+  from { opacity: 0; -webkit-transform: scale(1.5); }
+}
+@-moz-keyframes scaleUpFrom {
+  from { opacity: 0; -moz-transform: scale(1.5); }
+}
+@keyframes scaleUpFrom {
+  from { opacity: 0; transform: scale(1.5); }
+}
+
+@-webkit-keyframes scaleUpTo {
+  to { opacity: 0; -webkit-transform: scale(1.5); }
+}
+@-moz-keyframes scaleUpTo {
+  to { opacity: 0; -moz-transform: scale(1.5); }
+}
+@keyframes scaleUpTo {
+  to { opacity: 0; transform: scale(1.5); }
 }

@@ -1,17 +1,12 @@
-<nav class="msgnav mainbg">
-      <div class="navmsgwrap">
-        <a class="btn whitebtn" href="#">Previous</a>
-        <a class="btn whitebtn" href="#">Next</a>
-      </div>
-    </nav>
 
-  <div class="msgscontainer mainbg">
+
+  <div class="smallcontainer minheight mainbg">
 
     <ul class="msgs">
       
       <li class="msglist msglisthead">
         <h1 class="left">Messages</h1>
-        <a href="#" class="btn right">New Message</a>
+        <a href="#" class="btn right newmsgbtn"><em class="newmessageicon"></em><i class="newmsgtxt">New Message</i></a>
       </li>
         <% @conversations.order("updated_at desc").each do |conversation| %>
           <% unless conversation.deleted?(current_user) %>
@@ -26,7 +21,8 @@
                 <p class="usrnme left"><%= conversation.messages.last.user.username %></p>
                 <p class="time"><%= time_ago_in_words(conversation.messages.last.created_at) %> ago</p>
                 <p class="prevmsg"><%= conversation.messages.last.body.truncate(100) %></p>
-              </div> 
+               </div> 
+               <%  conversation.has_been_viewed %>
               <% end %> 
               </li>
             <% else %>

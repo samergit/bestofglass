@@ -1,17 +1,39 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  bid_id: 
-  title: MyString
-  artist_id: 
+  tite: MyString
+  category: MyString
+  user_id: 
+  active: false
+  height: 1.5
+  joint: MyString
+  perc: MyString
+  artist: MyString
+  buy: 1.5
+  increment: 1.5
+  shipping_price: 1.5
+  shipping_area: MyString
+  reserve: 1.5
   description: MyText
-  end_time: 2016-03-02 16:41:14
-  comment_id: 
+  length: 2016-03-15 13:33:36
+  starting_price: 1.5
+  final_price: 1.5
 
 two:
-  bid_id: 
-  title: MyString
-  artist_id: 
+  tite: MyString
+  category: MyString
+  user_id: 
+  active: false
+  height: 1.5
+  joint: MyString
+  perc: MyString
+  artist: MyString
+  buy: 1.5
+  increment: 1.5
+  shipping_price: 1.5
+  shipping_area: MyString
+  reserve: 1.5
   description: MyText
-  end_time: 2016-03-02 16:41:14
-  comment_id: 
+  length: 2016-03-15 13:33:36
+  starting_price: 1.5
+  final_price: 1.5

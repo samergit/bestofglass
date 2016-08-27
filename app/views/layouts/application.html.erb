@@ -6,16 +6,23 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
 
 <head>
-  <title>BestOfGlass</title>
+  <title>Best Of Glass | <%=yield(:title)%> </title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag "application", :media => "all" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-<%= yield %>
+<body class="<%= yield(:body_class) %>">
 
+  <% if user_signed_in? %>	
+    <%= render 'layouts/loggedin_nav' %>
+  <% else %>
+	  <%= render 'layouts/nav' %> 
+  <% end %>
+
+  <%= yield %>
 
 </body>
+
 </html>

@@ -2,6 +2,7 @@ class ConversationsController < ApplicationController
   before_filter:authenticate_user!
   def index
     @conversations =  current_user.conversations
+    current_user.touch :last_viewed_messages_page
   end
 
   def create

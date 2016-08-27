@@ -1,17 +1,17 @@
-<div class="msgscontainer mainbg">
-
-			<div class="msgthreadhead">
-				<%= link_to 'Inbox', conversations_path(@conversation), class: 'btn whitebtn leftbtn' %>
-				<i class="ava ava34"></i><h1>@<%= @recipient %></h1>
-			<%= link_to 'Delete', @conversation, method: :delete,  data: {confirm: 'Are you sure?'}, class: 'btn whitebtn rightbtn redtext' %>
-			</div>
+<%provide(:body_class, "bigfix")%> 
+<div class="smallcontainer minheight mainbg">
+	<div class="msgthreadhead">
+		<%= link_to 'Inbox', conversations_path(@conversation), class: 'btn whitebtn leftbtn' %>
+		<img src="ava.png" class="ava ava34" width="34" height="34"><h1>@<%= @recipient %></h1>
+		<%= link_to raw("<span class='trashicon'></span>"), @conversation, method: :delete,  data: {confirm: 'Are you sure?'}, class: 'rightbtn whitebtn' %>
+	</div>
 			<div class="msgthread">
 			<ul>
 			<% @messages.each do |message| %>
 				<% unless message.is_deleted?(current_user) %>
 					<% if message.user != current_user %>
 						<li class="receivedmsg">
-							<i class="ava ava34 left"></i>
+							<img src="ava.png" class="ava ava34 left" width="34" height="34">
 							<p class="left">
 							<%= message.body %>
 							</p>
@@ -20,12 +20,13 @@
 					<% end %>	
 					<% if message.user == current_user %>
 						<li class="sentmsg">
-						<i class="ava ava34 right"></i>
+						<%= image_tag("ava.png", size: "34x34", class: "ava ava34 right") %>
 						<p>
 							<%= message.body %>
 						</p>
 						<span class="timestamp right"><%= time_ago_in_words(message.created_at) %></span>
 						</li>
+		
 					<% end %>	
 				<% end %>
 			<% end %>	
@@ -36,8 +37,6 @@
 
 
 	<%= render :partial => 'new' %>
-
-
 
 
 		
