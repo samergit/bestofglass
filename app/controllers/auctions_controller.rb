@@ -48,13 +48,13 @@ class AuctionsController < ApplicationController
   def destroy
   end
 
-   def auction_timer
+  def auction_timer
     @auction = Auction.find_by_slug(params[:slug])
     respond_to do |format|
         format.html
-        format.js #-> loads /views/cookbooks/index.js.erb
+        format.js
       end
-   end
+  end
 
 
   private
