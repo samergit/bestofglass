@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  shipping_address_id: 
+  billing_address_id: 
+  created: false
+
+two:
+  user_id: 
+  shipping_address_id: 
+  billing_address_id: 
+  created: false

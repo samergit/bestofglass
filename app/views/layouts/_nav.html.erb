@@ -1,0 +1,107 @@
+
+	<div id="logged-out-nav" class="mainnavwrap">
+		<nav>
+				<a class="logo-wrap svg" href="">
+					<object type="image/svg+xml" data="<%= asset_path('logo.svg') %>" class="logo">
+  						<img src="<%= asset_path('logo.png') %>">
+					</object>
+				</a>
+
+			<div class="searchnavwrap left">
+				<input class="inputbox searchbox left" id="search" name="search" placeholder="Search" type="text">	
+				<!-- <input class="searchbtn left" name="commit" type="submit" value=""> -->
+				<button class="left svg" type="submit">
+					<object type="image/svg+xml" data="<%= asset_path('search_icon.svg') %>" class="searchbtn">
+  						<img src="<%= asset_path('search_icon.png') %>">
+					</object>
+				</button>
+			</div>
+
+			<div class="nav-cta right">
+				<a href="#" class="btn">Join</a>
+				<a href="#" class="btn whitebtn">Sign in</a>
+			</div>
+
+		</nav>
+
+	</div>
+
+
+	<header id="logged-out-mobile-nav" class="mobilenavheader">
+
+			<a href="" class="menuiconwrap svg">
+				<object type="image/svg+xml" data="<%= asset_path('menu_icon.svg') %>" class="menuicon">
+					<img src="<%= asset_path('menu_icon.png') %>"></object> 
+			</a>
+
+		<a class="logo-wrap svg" href="">
+			<object type="image/svg+xml" data="<%= asset_path('logo.svg') %>" class="logo">
+				<img src="<%= asset_path('logo.svg') %>"></object>
+		</a>
+
+		<nav>
+			<div class="searchnavwrap left">
+				<input class="inputbox searchbox left" id="search" name="search" placeholder="Search" type="text">	
+				<!-- <input class="searchbtn left" name="commit" type="submit" value="">	
+				-->
+				<button class="left svg" type="submit">
+					<object type="image/svg+xml" data="<%= asset_path('search_icon.svg') %>" class="searchbtn">
+						<img class="searchbtnfix" src="<%= asset_path('search_icon.png') %>">
+					</object>
+				</button>
+			</div>
+		</nav>
+			<div class="nav-cta right">
+				<a href="#" class="btn">Join</a>
+				<a href="#" class="btn whitebtn">Sign in</a>
+			</div>
+	</header>
+
+	<div class="slide-out-mobile-nav">
+		<nav>
+			<ul>
+
+				<li class="mobile-nav-profile">
+					<a href="#"><img src="ava.png" class="ava ava50" width="34" height="34">
+					<span class="username">bestofglass</span>
+				</a>
+				</li>
+
+				<li>
+					<input class="inputbox searchbox" id="search" name="search" placeholder="Search" type="text">
+					<button class="left svg" type="submit">
+						<object type="image/svg+xml" data="<%= asset_path('search_icon.png.svg') %>" class="searchbtn">
+  							<img src="<%= asset_path('search_icon.png') %>">
+						</object>
+					</button>
+				</li>
+
+			<li>
+				<a class="mainnavlink" href=""><span class="activityicon"></span><span class="notifycircle"></span>Activity</a>
+			</li>
+			<li>
+				<a class="mainnavlink" href=""><span class="notificationicon"></span><span class="notifycircle"></span>Notifications</a>
+			</li>
+			<li>
+				<a class="mainnavlink" href=""><span class="messageicon"></span>Messages</a>
+			</li>
+			<li>
+				<a class="mainnavlink" href=""><span class="dashboardicon"></span>Dashboard</a>
+			</li>
+
+			<li>
+				<a class="mainnavlink subnavlink" href="">Link</a>
+			</li>
+
+			<li>
+				<a class="mainnavlink subnavlink" href="">Link</a>
+			</li>
+
+			<li>
+				<a class="mainnavlink subnavlink" href="">Link</a>
+			</li>
+
+			</ul>
+		</nav>
+
+	</div>

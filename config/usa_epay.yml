@@ -1,0 +1,11 @@
+  development: &development
+    mode: test
+    login: QQ1qe25w14sU3eF1i706PlwW0DiJuQ1s 
+
+
+  production:
+    <<: *development
+
+
+  test:
+    <<: *development

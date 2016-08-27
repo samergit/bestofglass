@@ -1,0 +1,151 @@
+<div class="checkoutwrap checkout-process">
+
+	<div class="checkout-header">
+
+			<object type="image/svg+xml" data="logo.svg" class="logo" style="width">
+				<img src="logo.png">
+			</object>
+
+			<h1>Best of Glass - Secure Checkout</h1>
+
+	</div>
+
+		<div class="mainbg cart-list">
+
+			<div class="auctiontopwrap left">
+
+				<section class="auctionimage">
+
+					<img src="aucimg.png" width="150" height="150">
+
+					<ul class="subaucinfo">
+
+						<li>
+
+							<em class="subdesc thumb">Item</em> <i class="thumbnailinfo">Blue Stardust Klein</i>
+
+						</li>
+
+						<li>
+
+							<em class="subdesc">Artist(s)</em> <i class="thumbnailinfo">Vibe Glass</i>
+
+						</li>
+
+					</ul>
+
+				</section>
+
+				<section class="bidarea" style="clear:left;">
+
+					<ul class="subaucinfo">
+
+						<li>
+
+							<em class="subdesc">Item Total</em>
+							<i>$850</i>
+
+						</li>
+
+						<li>
+
+							<em class="subdesc">Shipping</em>
+							<i>$15</i>
+
+						</li>
+
+						<li>
+
+							<em class="subdesc">California State Tax (7.5%)</em>
+							<i>$63.75</i>
+
+						</li>
+
+						<li class="totalprice">
+
+							<em class="subdesc">Total Price</em> <b>$928.75</b>
+
+						</li>
+
+					</ul>
+
+				</section>
+
+			</div>
+
+			<div class="right checkout-shipping-address">
+
+				<div class="db-inner-wrap">
+
+					<section class="newaucsections settings-content remove-border">
+
+
+					<h2>
+						Payment Method
+					</h2>
+
+						<div class="relative">
+							<%= form_for(@order) do |f| %>
+							<%= fields_for :creditcard, @credit_card do |cc| %>
+							<div class="divideinput">
+
+								<label class="label-style" for="name">Name on card</label>
+
+								
+								<p class="tip required-error redtext">Required</p>
+
+							</div>
+
+							<div class="divideinput">
+
+								<label class="label-style" for="cardnumber">Card number</label>
+								<%= cc.text_field :number, class: 'auctinput ccinput' %>
+								<p class="tip required-error redtext">Required</p>
+
+							</div>
+
+							<div class="relative">
+
+								<div class="divideinput exp-date-cvv">
+
+									<label class="label-style">Exp Month</label>
+
+									<%= cc.select :month, Date::ABBR_MONTHNAMES.compact.each_with_index.collect{|m, i| [m, i+1]}, {:prompt => 'Select'}, class: 'select_style' %>
+
+								</div>
+
+								<div class="divideinput exp-date-cvv">
+
+									<label class="label-style" for="expyear">Exp Year</label>
+
+									<%= cc.select :year, Array.new(15){|i| Date.current.year+i}, {:prompt => 'Select'}, class: 'select_style' %>
+
+								</div>
+
+								<div class="divideinput exp-date-cvv">
+
+									<label class="label-style" for="cvv">CVV</label>
+
+									<%= cc.text_field :verification_value, class: 'auctinput' %>
+									<p class="tip required-error redtext">Required</p>
+								<% end %>
+
+								</div>
+
+							</div>
+
+
+							<div class="divideinput">
+								<%= f.submit "Complete order", class: 'btn complete-order-btn' %>
+							<% end %>	
+							</div>
+
+						</div>
+
+					</section>
+
+				</div>
+
+			</div>
+		</div>
+	</div>

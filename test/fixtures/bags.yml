@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  baggable_id: 1
+  type: 1
+
+two:
+  baggable_id: 1
+  type: 1

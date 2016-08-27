@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tracking: MyString
+  carrier: MyString
+  order_id: 
+  shipper_id: 1
+  buyer_id_id: 
+
+two:
+  tracking: MyString
+  carrier: MyString
+  order_id: 
+  shipper_id: 1
+  buyer_id_id: 

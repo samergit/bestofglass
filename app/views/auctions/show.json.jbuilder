@@ -1,0 +1,1 @@
+json.extract! @auction, :id, :category, :artist, :title, :height, :joint, :perc, :description, :length, :starting_price, :reserve, :buy, :shipping_area, :shipping_price, :attachments

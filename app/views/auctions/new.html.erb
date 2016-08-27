@@ -1,0 +1,300 @@
+<%provide(:body_class, "hp-bgfix")%> 
+<div id="guidelines" class="new-auc-container mainbg">
+
+		<div class="msgtextarea msgsrcharea msgsrchareaheader">
+
+			<h1>Auction Guidelines</h1>
+
+		</div>
+
+		<section class="newauctiondescription newaucsections auction-guidelines">
+
+			<h2><span class="circleorder">1</span> Describe your item</h2>
+
+
+				<p>
+					Paragraph if needed.
+					Paragraph if needed.
+					Paragraph if needed.
+					Paragraph if needed.
+					Paragraph if needed.
+					Paragraph if needed.
+					Paragraph if needed.
+					Paragraph if needed.
+
+				</p>
+
+			<h2><span class="circleorder">2</span> Describe your item</h2>
+
+			<h2><span class="circleorder">3</span> Describe your item</h2>
+
+			<h2><span class="circleorder">4</span> Describe your item</h2>
+
+			<div class="btn greenbtn" id="agree_button"> Agree and continue</div>
+
+		</section>
+
+	</div>
+
+<div id="auction-form" class="new-auc-container mainbg">
+
+		<div class="msgtextarea msgsrcharea msgsrchareaheader">
+
+			<h1>New Auction</h1>
+
+		</div>
+
+		<%= form_for(@auction, html: { multipart: true, class:'dropzone'}, remote: true) do |f| %>
+		  <section class="newauctiondescription newaucsections">
+
+			<h2><span class="circleorder">1</span> Describe your item</h2>
+
+			<div class="divideinput">
+				<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+				<label class="label-style" for="category">Category</label>
+			<%= f.fields_for :item do |item_form| %>
+				<%= item_form.select :category, [['Rig'], ['Pendant'], ['Dry Pipe'], ['Accessories']], class: 'select_style' %>
+
+			</div>
+
+			<div class="divideinput">
+
+				<label class="label-style" for="artist">Artist(s) *</label>
+				<%= item_form.text_field :artist, class: "aucinput", id: 'artist', placeholder: "E.g. Apple Glass x Orange Glass" %>
+				<p class="tip required-error redtext">Required</p>
+			</div>
+
+			<div class="divideinput">
+
+				<label class="label-style" for="title">Title *</label>
+
+				<%= item_form.text_field :title, class: "aucinput", id: 'title', placeholder: "E.g. Blue Stardust Klein" %>
+				<p class="tip required-error redtext">Required</p>
+			</div>
+		  <div id="rig-options">
+			
+			<div class="divideinput left">
+
+				<label class="label-style" for="height" id="label_height">Height *</label>
+				<%= item_form.text_field :height, class: "aucinput", id: 'height', placeholder: 'E.g. 7.5"' %>
+				<p class="tip required-error redtext">Required</p>
+			</div>	
+
+			<div class="divideinput left">
+
+				<label class="label-style" for="joint" id="label_joint">Joint *</label>
+				<%= item_form.text_field :joint, class: "aucinput", id: 'joint', placeholder: "E.g. 14mm Female" %>
+				<p class="tip required-error redtext">Required</p>
+
+			</div>	
+
+			<div class="divideinput left percfix">
+
+				<label class="label-style" for="perc" id="label_perc">Perc *</label>
+
+				<%= item_form.text_field :perc, class: "aucinput", id: 'perc', placeholder: "E.g. 2 hole" %>
+				<p class="tip required-error redtext">Required</p>
+			</div>
+		</div>
+		<div id="dry-pipe-options">
+
+				<div class="divideinput left">
+
+					<label class="label-style" for="auction_dry_pipe_length">Length</label>
+
+					<%= item_form.text_field :dry_pipe_style, class:"aucinput", placeholder: 'E.g. 7.5"' %>
+					<p class="tip required-error redtext">Required</p>
+				</div>	
+
+		</div>
+
+			<div id="pendant-options">
+
+				<div class="divideinput left">
+
+					<label class="label-style" for="auction_pendant_length">Length</label>
+
+					<%= item_form.text_field :pendant_length, class:"aucinput", placeholder: 'E.g. 7.5"' %>
+					<p class="tip required-error redtext">Required</p>
+				</div>	
+
+				<div class="divideinput left">
+
+					<label class="label-style" for="auction_width">Width *</label>
+
+					<%= item_form.text_field :width, class:"aucinput", placeholder: 'E.g. 1.5"' %>
+					<p class="tip required-error redtext">Required</p>
+
+				</div>	
+
+				<div class="divideinput left percfix">
+
+					<label class="label-style" for="auction_hole_size">Hole Size</label>
+					<%= item_form.text_field :hole_size, class:"aucinput", placeholder: 'E.g. 4mm' %>
+					<p class="tip required-error redtext">Required</p>
+				</div>
+
+			</div>
+
+			<div id="accessories-options">
+
+				<div class="divideinput left">
+
+					<label class="label-style" for="auction_accessory_type">Accessory Type</label>
+
+					<%= item_form.text_field :accessory_type, class:"aucinput", placeholder: "E.g. Dabber" %>
+					<p class="tip required-error redtext">Required</p>
+				</div>	
+
+			</div>
+
+			
+			<div class="divideinput descclear">
+				<label class="label-style" for="description">Description *</label>
+				<%= item_form.text_area :description, class: "inputstyle textarea-style", id: 'description' %>
+
+				<p class="tip required-error redtext">Required</p>
+
+				<p class="tip">
+					<object type="image/svg+xml" data="<%= asset_path('help_icon.svg') %>" class="helpicon">
+  						<img src="<%= asset_path('help_icon.png') %>">
+					</object>
+					<b>Tip:</b> Be very descriptive because the more detailed you are the less you will be asked questions regarding your item. Include colors, techniques, etc.
+				</p>
+			</div>
+			<% end %>
+		</section>
+
+
+		<section class="newauctionimages newaucsections">
+
+			<h2><span class="circleorder">2</span> Images and videos</h2>
+			<div class="dragndrop" id="dropzone-click-target">
+				<div class="noimgsdrag" id="dropzonePreview">
+
+						<div class="add-more-images">
+
+							<div class="btn greenbtn">Add More</div>
+
+						</div>
+					  <%= image_tag("draganddrop_icon.png", size: "125x100", class: "draganddropicon", id: "hide1") %>
+						<p class="dndtxt" id="hide2">
+							Drag multiple images and/or a video here or click <span>browse</span> to upload multiple images and a video.
+						</p>
+						<%= f.fields_for :attachment do |ff| %> 
+							<%= ff.file_field :attachment, multiple: true, name: "attachments[]" %> 
+						<% end %>
+				</div>
+			</div>		
+			<p class="tip required-error redtext">Required</p>
+		</section>
+
+		<section class="newauctionpricing newaucsections">
+
+			<h2><span class="circleorder">3</span> Format and pricing</h2>
+
+			<div class="divideinput">
+
+				<label class="label-style">Listing Duration</label>
+
+				
+				<%= f.select :length, [['1 Day (24 hrs)', 1], ['2 Days (48 hrs)', 2], ['3 Days (72 hrs)', 3], ['4 Days (96 hrs)', 4], ['5 Days (120 hrs)', 5]] %>
+					
+
+			</div>
+
+			<div class="divideinput">
+
+				<label class="label-style" for="starting">Starting Price *</label>
+				<div class="relative">
+					<span class="dollarsign">$</span>
+					<%= f.text_field :starting_price, class: "dollarinput aucinput", id: 'starting' %>
+
+					<p class="tip required-error redtext">Required</p>
+
+					<p class="tip">
+						<object type="image/svg+xml" data="<%= asset_path('help_icon.svg') %>" class="helpicon">
+  							<img src="<%= asset_path('help_icon.png') %>">
+						</object>
+						<b>Tip:</b> All auctions have a minimum incremental bid of $1. You may also make the starting bid and buy it now price the same for a fixed price.
+					</p>
+				</div>
+
+			</div>
+
+			<div class="divideinput">
+
+				<label class="label-style" for="reserve">Reserve Price (optional)</label>
+				<div class="relative">
+					<span class="dollarsign">$</span>
+					<%= f.text_field :reserve, class: "dollarinput aucinput", id: 'reserve' %>
+					<p class="tip">
+						<object type="image/svg+xml" data="<%= asset_path('help_icon.svg') %>" class="helpicon">
+  							<img src="<%= asset_path('help_icon.png') %>">
+						</object>
+						<b>Tip:</b> This is the minimum price you are willing to sell your item for. If the auction does not meet this price you will have the option to sell it or not sell it.
+					</p>
+				</div>
+
+			</div>
+
+			<div class="divideinput">
+
+				<label class="label-style" for="bin">Buy It Now (optional)</label>
+				<div class="relative">
+					<span class="dollarsign">$</span>
+					<%= f.text_field :buy_it_now_price, class: "dollarinput aucinput", id: 'buy' %>
+					<p class="tip">
+						<object type="image/svg+xml" data="<%= asset_path('help_icon.svg') %>" class="helpicon">
+  							<img src="<%= asset_path('help_icon.png') %>">
+						</object>
+						<b>Tip:</b> Leave blank if you would like the option for bidders to bid as high as possible or are unsure of the retail price.
+					</p>
+				</div>
+
+			</div>
+
+			<div class="divideinput">
+
+				<label class="label-style">Shipping to</label>
+                <%= f.select :shipping_area, [['USA Only']], class: 'select_style' %>
+
+			</div>
+			<div class="divideinput">
+
+				<label class="label-style" for="shipping">Shipping price</label>
+				<div class="relative">
+					<span class="dollarsign">$</span>
+					<%= f.text_field :shipping_price, class: "dollarinput aucinput", id: 'shipping' %>
+					<p class="tip">
+						<object type="image/svg+xml" data="<%= asset_path('help_icon.svg') %>" class="helpicon">
+  							<img src="<%= asset_path('help_icon.png') %>">
+						</object>
+						<b>Tip:</b> Leave blank for free shipping.
+					</p>
+				</div>
+
+			</div>
+
+		</section>
+
+		<section class="newauctionpricing newaucsections">
+			<div class="relative">
+
+				<%= f.submit "Create New Auction", class: 'btn disabledbtn', id: 'create_auction', disabled: true %>
+
+			<div class="btn disabledbtn creating-auction-btn" id="auction_submitted">
+				<img src="<%= asset_path('gear.gif') %>" width="31" height="31">
+				<em>Creating Auction</em>
+			</div>
+
+			</div>
+				
+
+		</section>
+
+		<% end %>
+
+	</div>
+
+

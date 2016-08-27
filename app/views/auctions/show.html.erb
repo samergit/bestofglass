@@ -1,0 +1,281 @@
+<div id="flashmessage" class="flash-success gen-flash">
+		<span class="success-msg">Message successful.</span>
+	</div>
+
+<!-- 	<div id="flashmessage" class="flash-error gen-flash">
+		<span class="error-msg">Message successful.</span>
+	</div>
+
+	<div id="flashmessage" class="flash-general gen-flash">
+		<span class="general-msg">Message successful.</span>
+	</div> -->
+ 
+
+
+
+	<div class="mainbg mainwrap">
+	<div class="auction-message">
+		<span class="general-auction-message">This auction has ended with no bids on users end || Relist on artists end</span>
+	</div>
+
+	<div class="auction-message">
+		<span class="green-auction-message">Auction ended successfuly - Pay for auction on winners end || Auction ended successfully on users end</span>
+	</div>
+
+	<div class="auction-message">
+		<span class="yellow-auction-message">Reserve not met - Relist auction (artist end) || Auction has ended and did not reach the reserve</span>
+	</div>
+
+		<div class="auctiontopwrap">
+
+			<section class="left auctionimage">
+
+			<div id="owl-example" class="owl-carousel">
+				
+				 <% @item.attachments.each do |attachment| %>
+				  <div class="owl-item">
+				  <% if attachment.attachment.resource_type == "video"  %>
+				   <% video_url = cl_video_path(attachment.attachment.url(:standard_auction_media)) %>
+ 					<%= video_tag video_url, :size => "470x470", :controls => true, :autobuffer => true %>
+ 					<% else %>
+ 					 <%= cl_image_tag(attachment.attachment, :transformation=>[
+  							{:width=>940, :height=>940, :background=>"white", :crop=>"pad"}
+ 							 ], :html_width=>470, :html_height=>470) %>
+ 					<% end %>
+					</div>
+				<% end  %>
+			</div>
+
+
+			</section>
+
+
+			<section class="bidarea left">
+
+
+				<span class="artistheader">
+					Artist(s)
+				</span>
+
+				<span class="artistnames">
+
+					<h1>
+						Vibe Glass
+					</h1>
+
+				</span>
+
+				<ul class="productspecs">
+
+					<li>
+						<span class="aucheight">
+							Height
+						</span>
+						<span class="sizespec">
+							7.5"
+						</span>
+					</li>
+
+					<li>
+						<span class="aucjoint">
+							Joint
+						</span>
+						<span class="sizespec">
+							14mm Female
+						</span>
+					</li>
+
+					<li>
+						<span class="aucperc">
+							Perc
+						</span>
+						<span class="sizespec">
+							2 Hole
+						</span>
+					</li>
+
+				</ul>	
+				<% if @auction.is_active? %>
+				<%= content_tag "div", class: "auctimeleft", id: "auct_time_left", data: {slug: @auction.slug} do %>
+
+					<%= render :partial => 'auction_timer' %>
+
+				<% end %>
+			
+				<div class="mainbids">
+
+					<div class="currentbidtxt">
+						Current Bid <% if @auction.current_price < @auction.reserve %><em class="reservetxt">*Reserve has not been met</em> <% end %>
+
+					</div>
+
+					<div class="currentbidprice">
+						<span class="bidnumber" id="current_bid"><%= number_to_currency(@auction.current_price) %></span>
+						<div class="amntbids">
+							<a href="#"><%= pluralize(@auction.bids.count, 'bid') %> </a>
+						</div>
+					</div>
+
+					<div class="relative">
+						<span class="biddollarsign">$</span>
+						 <%= form_for(@bid, :url => {:action => 'create', :controller=> 'bids'}) do |f| %>
+						   <%= f.text_field :amount, class: "biddollarinput left", placeholder: "#{number_with_precision(@auction.current_price + 1, precision: 2)} or more" %>
+						   <%= f.hidden_field :auction_id, :value => @auction.id %>
+						   <%= f.submit "Place Bid", class: "left btn orangebtn placebidbtn" %>
+						<% end %>
+						<p class="tip">Enter <%= number_to_currency(@auction.current_price + 1) %> or more</p>
+					</div>
+				   <% if @auction.buy_it_now_price  %>
+					<div class="buyitnowtxt">
+					Buy It Now
+					</div>
+
+					<div class="currentbidprice">
+						<span class="bidnumber"><%= number_to_currency(@auction.buy_it_now_price) %></span>
+					</div>
+					<div class="relative">
+						<a class="left btn" href="#">Buy It Now</a>
+						<button class="btn favoritebtn svg">
+							<object type="image/svg+xml" data="icons/star_icon.svg" class="staricon">
+  								<img src="icons/notification_icon.png">
+							</object>
+							Favorite
+						</button>
+					</div>
+					<% else %>
+					<div class="relative">
+						<button class="btn favoritebtn svg favorite-no-bin">
+							<object type="image/svg+xml" data="<%= asset_path('star_icon.svg') %>" class="staricon">
+  								<img src="<%= asset_path('star_icon.png') %>">
+							</object>
+							Favorite
+						</button>
+					</div>
+					<% end %>
+
+				</div>
+			<% elsif @auction.winner_id.present? %>
+
+				<% if user_signed_in? && current_user.id == @auction.winner_id %>
+					<div id="winning-bid" class="mainbids">
+
+					<div class="buyitnowtxt">
+						Congratulations on winning, <%= current_user.username.titleize %>!
+					</div>
+
+					<div class="currentbidprice">
+						<span class="bidnumber"><%= number_to_currency(@auction.final_price) %></span>
+					</div>
+
+					<div class="relative">
+						<a class="left btn" href="#">Proceed to checkout</a>
+					</div>
+
+				     </div>
+				     <% else %>
+				     	<div id="winning-bid" class="mainbids">
+
+						<div class="buyitnowtxt">
+						This auction had ended. 
+						<% if @auction.winner_id.present? %>
+							<% @winner = User.find(@auction.winner_id) %>
+							<%= @winner.username.titleize %> is the winner.
+						<% end %>
+					</div>
+					</div>
+					<% end %>
+				<% elsif !@auction.winner_id.present? %>
+				<div id="winning-bid" class="mainbids">
+
+						<div class="buyitnowtxt">
+						This auction had ended.
+						
+					</div>
+					</div>
+
+
+				<% end %>
+
+
+				<ul class="subaucinfo">
+
+					<li>
+
+						<em class="subdesc">Shipping: </em> <b><%= @auction.shipping_price %></b>
+
+					</li>
+
+					<li>
+
+						<em class="subdesc">Item Location:</em> <b>San Francisco, CA</b>
+
+					</li>
+
+					<li>
+
+						<em class="subdesc">Ships to:</em> <b>U.S.A. & Canada</b>
+
+					</li>
+
+					<li>
+<!-- 
+						<em class="subdesc">Payments:</em> <span class="payment-icon v t-icon amexicon"></span> -->
+
+					</li>
+
+				</ul>
+
+			</section>
+
+	</div>
+
+	<div class="desccontainer">
+
+		<div class="descwrap">
+			<h3 class="desctitle"><b><%= @item.title %></b> by <b><%= @item.artist %></b></h3>
+			<p>
+				<%= @item.description %>
+			</p>
+		</div>
+
+		<div class="descseller">
+			<h4 class="sellertitle">Seller</h4>
+			<!-- <a href="#"><img src="ava.png" class="ava ava34" width="34" height="34"></a> -->
+			<a class="sllerusrnme"href="#"><%= @auction.user.username %></a>
+			<input class="btn whitebtn aucfollowbtn" type="submit" value="Follow">
+		</div>
+
+		<div class="commentswrap">
+
+			<h4 class="cmtheader">Comments <i class="circle"></i><em class="amntcmnts">3 comments</em></h4>
+
+			<textarea placeholder="Enter a comment..."></textarea>
+			<input class="btn" value="Post Comment">
+			
+			<ul class="auccomments">
+
+				<li>
+
+				<!-- <a href="#"><img src="ava.png" class="ava ava34" width="34" height="34"></a> -->
+				<a class="cmtusrnme"href="#">bestofglass</a>
+				<span>1 minute ago</span>
+
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget lacus tempus, luctus tortor at, pulvinar arcu. Nunc blandit lectus rhoncus varius mattis. Sed id mattis ipsum. Cras vehicula odio ut dolor congue porttitor.
+
+				</p>
+
+
+
+				</li>
+
+			</ul>
+
+		</div>
+
+	</div>
+
+
+
+	</div>
+

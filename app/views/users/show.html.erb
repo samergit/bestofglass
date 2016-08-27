@@ -1,0 +1,7 @@
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+Yo Yo Yo
+<% if user_signed_in? %>
+	<%= link_to "Message #{@user.username}", conversations_path(username: @user.username), method: 'post' %>
+<% end %>
+

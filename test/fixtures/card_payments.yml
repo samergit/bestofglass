@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  references: 
+  user_id: 
+  ip_address: MyString
+  last4: MyString
+
+two:
+  references: 
+  user_id: 
+  ip_address: MyString
+  last4: MyString

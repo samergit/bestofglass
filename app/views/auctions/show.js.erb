@@ -1,0 +1,4 @@
+function() {
+          setInterval(function() {
+             $("#bid_partial").html("<%= escape_javascript(render('/auctions/bid_partial')) %>")
+        }, 1000);

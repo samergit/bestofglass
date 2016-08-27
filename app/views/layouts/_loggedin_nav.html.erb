@@ -1,0 +1,195 @@
+<div id="logged-in-nav" class="mainnavwrap">
+		<nav>
+				<a class="logo-wrap svg" href="">
+					<object type="image/svg+xml" data="<%= asset_path('logo.svg') %>" class="logo">
+  						<img src="<%= asset_path('logo.png') %>">
+					</object>
+				</a>
+
+			<div class="searchnavwrap left">
+				<input class="inputbox searchbox left" id="search" name="search" placeholder="Search" type="text">	
+				<!-- <input class="searchbtn left" name="commit" type="submit" value=""> -->
+				<button class="left svg" type="submit">
+					<object type="image/svg+xml" data="<%= asset_path('search_icon.svg') %>" class="searchbtn">
+						<img class="searchbtnfix" src="<%= asset_path('search_icon.png') %>">
+					</object>
+				</button>
+			</div>
+
+			<a class="mainnavlink svg" href="">
+				<object type="image/svg+xml" data="<%= asset_path('activity_icon.svg') %>" class="activityicon">
+  					<img src="<%= asset_path('notification_icon.png') %>">
+				</object>
+
+				<span class="notifycircle"></span>
+				<em class="navtxt">Activity</em>
+			</a>
+			<a class="mainnavlink svg" href="">
+				<object type="image/svg+xml" data="<%= asset_path('notification_icon.svg') %>" class="notificationicon">
+  					<img src="<%= asset_path('notification_icon.png') %>">
+				</object>
+				<span class="notifycircle"></span>
+				<em class="navtxt">Notifications</em>
+			</a>
+			<%= link_to conversations_path, class: "mainnavlink svg" do %>
+				<object type="image/svg+xml" data="<%= asset_path('message_icon.svg') %>" class="messageicon">
+  					<img src="<%= asset_path('message_icon.svg') %>">
+				</object>
+				<% if current_user.last_received_message > current_user.last_viewed_messages_page %>
+					<span class="notifycircle"></span>
+				<% end %>
+				<em class="navtxt">Messages</em>
+			<% end %>
+			<a class="mainnavlink svg" href="">
+				<object type="image/svg+xml" data="<%= asset_path('dashboard_icon.svg') %>" class="dashboardicon">
+  					<img src="<%= asset_path('dashboard_icon.svg') %>">
+				</object>
+				<em class="navtxt">Dashboard</em>
+			</a>
+			<% case current_user.role %> 
+			  <% when 'user' %> 
+			    <div class="rightnavlink right">
+				  <a  href="#" class="left whitebtn bag-notification svg">
+				    <span class="bagiconwrap">
+					  <object type="image/svg+xml" data="<%= asset_path('bag_icon.svg') %>" class="bagicon">
+  					    <img src="<%= asset_path('bag_icon.png') %>">
+					  </object>
+					    <em class="checkout-items-notification">
+							3
+						</em>
+					</span>
+				  </a>
+				  <div class="toggle-dropdown left">
+					<img src="<%= asset_path('ava.png') %>" class="ava ava34" width="34" height="34">	
+					<object type="image/svg+xml" data="<%= asset_path('menu_icon.svg') %>" class="menuicon">
+  						<img src="<%= asset_path('menu_icon.png') %>">
+					</object>
+				  </div>
+			    </div>
+			  <% when 'artist' %>
+			      <div class="rightnavlink right">
+			      <% if current_user.seller_verified? %>
+				    <%= link_to new_auction_path, class: "left whitebtn new-auction-nav-btn svg" do %>
+					  <span class="auctioniconwrap">
+					    <object type="image/svg+xml" data="<%= asset_path('nav_auction_icon.svg') %>" class="navauctionicon">
+  						<img src="<%= asset_path('nav_auction_icon.png') %>">
+					    </object>
+					  </span>
+					<% end %>
+				 <% end %>
+				  <div class="toggle-dropdown left">
+					<img src="<%= asset_path('ava.png') %>" class="ava ava34" width="34" height="34">	
+					<object type="image/svg+xml" data="<%= asset_path('menu_icon.svg') %>" class="menuicon">
+  						<img src="<%= asset_path('menu_icon.svg') %>">
+					</object>
+				  </div>
+			    </div>
+			<% when 'admin' %>
+			  <div class="rightnavlink right">
+			    <a  href="#" class="left  whitebtn acp-btn">
+					A
+				</a>
+				<div class="toggle-dropdown left">
+					<img src="<%= asset_path('ava.png') %>" class="ava ava34" width="34" height="34">	
+					<object type="image/svg+xml" data="<%= asset_path('menu_icon.svg') %>" class="menuicon">
+  						<img src="<%= asset_path('menu_icon.png') %>">
+					</object>
+				</div>
+			  </div>
+			<% end %>
+				
+
+			<div class="drop-down-menu">
+
+				<ul>
+					<li>
+
+						<a href="#">
+							<div class="username">
+								<span>bestofglass</span> <em>View Profile</em>
+							</div>
+
+						</a>
+
+					</li>
+					<li>
+						<a href="#">Log out</a>
+					</li>
+					<li>
+						<a href="#">Log out</a>
+					</li>
+					<li>
+						<a href="#">Log out</a>
+					</li>
+				</ul>
+
+			</div>
+
+		</nav>
+
+	</div> 
+
+<header id="logged-in-mobile-nav" class="mobilenavheader">	
+	<a href="" class="menuiconwrap svg">
+		<object type="image/svg+xml" data="<%= asset_path('menu_icon.svg') %>" class="menuicon">
+  			<img src="<%= asset_path('menu_icon.png') %>">
+		</object>
+		<em class="mobile-menu-notification">3</em>
+	</a>
+		<ul>
+			<li>
+				<a class="logo-wrap svg" href="">
+					<object type="image/svg+xml" data="<%= asset_path('logo.svg') %>" class="logo">
+  						<img src="<%= asset_path('logo.png') %>">
+					</object>
+				</a>
+			</li>
+			<li>
+				<nav>
+					<div class="searchnavwrap left">
+						<input class="inputbox searchbox left" id="search" name="search" placeholder="Search" type="text">	
+						<button class="left svg" type="submit">
+							<object type="image/svg+xml" data="<%=asset_path('search_icon.svg')%>" class="searchbtn">
+								<img class="searchbtnfix" src="<%=asset_path('search_icon.png')%>">
+							</object>
+						</button>
+					</div>
+				</nav>
+			</li>
+			<li>
+				<a class="mainnavlink svg" href="">
+					<object type="image/svg+xml" data="<%=asset_path('activity_icon.svg')%>" class="activityicon">
+  						<img src="<%=asset_path('activity_icon.png')%>">
+					</object>
+				</a>
+			</li>
+			<li>
+				<a class="mainnavlink svg" href="">
+					<object type="image/svg+xml" data="<%=asset_path('notification_icon.svg')%>" class="notificationicon">
+  						<img src="<%=asset_path('notification_icon.png')%>">
+					</object>
+				</a>
+			</li>
+			<li>
+				<a class="mainnavlink svg" href="">
+					<object type="image/svg+xml" data="<%=asset_path('message_icon.svg')%>" class="messageicon">
+  						<img src="<%=asset_path('message_icon.png')%>">
+					</object>
+				</a>
+			</li>
+			<li>
+				<a class="mainnavlink svg" href="">
+					<object type="image/svg+xml" data="<%=asset_path('dashboard_icon.svg')%>" class="dashboardicon">
+  						<img src="<%=asset_path('dashboard_icon.png')%>">
+					</object>
+				</a>
+			</li>
+			<li class="mobile-search-icon">
+				<a class="mainnavlink svg" href="">
+					<object type="image/svg+xml" data="<%=asset_path('mobile_search_icon.svg')%>" class="mobilesearchicon">
+  						<img src="<%=asset_path('mobile_search_icon.png')%>">
+					</object>
+				</a>
+			</li>
+		</ul>
+	</header>

@@ -1,0 +1,5 @@
+<%= content_tag "div", id: "auction_data", data: {active: @auction.is_active?} do %>
+	<%= content_tag "p", id: "time_left", data: {seconds: @auction.js_time_left} do %>
+		Time left: <em class="rortime"><%= @auction.display_time_remaining %></em>
+	<% end %>
+<% end %>
